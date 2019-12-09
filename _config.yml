@@ -18,17 +18,22 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: 보물창고
+title: 창고
 email: garam1362@naver.com
+author: 임가람
 description: >- # this means to ignore newlines until "baseurl:"
-  잊어버리기 전에 기록해두는 보물창고 입니다.
+  잊어버리기 전에 기록해두기
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://garamm.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: 
+github: "https://github.com/garamm"
 github_username:  garamm
+paginate: 5
+disqus:
+  shortname: "garamm"
 
 # Build settings
-theme: minima
+theme: minima # minima 테마 커스터마이징 함
 plugins:
   - jekyll-feed
 
