@@ -12,10 +12,10 @@
             {%- endif -%}
           </li>
           {%- if site.email -%}
-          <li><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+          <li><i class="fas fa-at"></i><a class="u-email" href="mailto:{{ site.email }}">&nbsp;{{ site.email }}</a></li>
           {%- endif -%}
           {%- if site.github -%}
-          <li><i class="fab fa-github"></i><a class="u-github" href="{{ site.github }}">Github</a></li>
+          <li><i class="fab fa-github"></i><a class="u-github" href="{{ site.github }}">&nbsp;Github</a></li>
           {%- endif -%}
         </ul>
       </div>

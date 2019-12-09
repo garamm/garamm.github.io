@@ -1,0 +1,55 @@
+---
+layout: default
+title: Search
+permalink: /search/
+---
+<form action="/search.html" method="get">
+  <input type="text" id="search-box" name="query">
+  <button type="submit" id="search-btn">
+      <i class="fas fa-search"></i>
+  </button>
+</form>
+
+<ul id="search-results"></ul>
+
+<script>
+  window.store = {
+    {% for post in site.posts %}
+      "{{ post.url | slugify }}": {
+        "title": "{{ post.title | xml_escape }}",
+        "author": "{{ post.author | xml_escape }}",
+        "category": "{{ post.category | xml_escape }}",
+        "content": {{ post.content | strip_html | strip_newlines | jsonify }},
+        "url": "{{ post.url | xml_escape }}"
+      }
+      {% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  };
+</script>
+<script src="/js/lunr.min.js" charset="utf-8"></script>
+<script src="/js/search.js" charset="utf-8"></script>
+<style>
+ul {
+  list-style: none;
+}
+
+form {
+  text-align: center;
+}
+
+#search-box {
+  width: calc(100% - 100px);
+  font-size: 30px;
+  border: none;
+  border-bottom: 1.5px solid #90BAFE;
+  margin-bottom: 30px;
+}
+
+#search-btn {
+  width: 50px;
+  font-size: 30px;
+  background: none;
+  border: none;
+}
+
+</style>
