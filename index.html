@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 <!DOCTYPE html>
 <html>
 
@@ -22,14 +26,14 @@
 
 <body>
     <div id="app">
-        {% include header.html %}
-
         <div class="columns is-desktop book_list">
             <div class="column card book_item" v-for="book in bookList"
-                v-bind:style="{ backgroundColor: book.bookCoverColor, color: book.bookFontColor }"
+                v-bind:style="{ backgroundColor: book.bookCoverColor, color: book.bookTitleTextColor }"
                 @click="bookClick(book.bookLink)">
-                <p class="book_title">{{ book.bookName }}</p>
+                <span class="book_title"><% book.bookTitle %></span>
                 <img class="book_icon" v-bind:src="book.bookIcon" />
+                <p class="book_sub_title"
+                v-bind:style="{ color: book.bookSubTitleTextColor }"><% book.bookSubTitle %></p>
             </div>
         </div>
 
@@ -40,6 +44,7 @@
 
     new Vue({
         el: '#app',
+        delimiters:['<%', '%>'],        // jekyll에서 사용하는 {{ }}와 겹치기 때문에 임의로 다르게 정의
         data: {
             bookList: [],
             display: 5,
@@ -79,6 +84,7 @@
 <style>
     body {
         font-size: 15px;
+        background-color: #FAFAFA;
     }
 
     .book_list {
@@ -92,11 +98,21 @@
         max-width: 250px;
         padding: 20px;
         margin: 0px 20px 20px 0px;
+        position: relative;
     }
 
     .book_title {
         font-size: 25px;
         margin-bottom: 30px;
+        display: inline-block;
+    }
+
+    .book_sub_title {
+        font-size: 13px;
+        margin-bottom: 30px;
+        right: 20px;
+        bottom: 0px;
+        position: absolute;
     }
 
     .book_icon {

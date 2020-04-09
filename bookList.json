@@ -1,9 +1,10 @@
 [
     {
-        "bookName": "Android",
-        "bookExplain": "안드로이드 정리본",
+        "bookTitle": "Android",
+        "bookSubTitle": "안드로이드 정리본",
         "bookCoverColor": "white",
-        "bookFontColor": "#4a4a4a",
+        "bookTitleTextColor": "#4a4a4a",
+        "bookSubTitleTextColor": "#939494",
         "bookIcon": "/imgs/bi_android.svg",
         "bookLink": "https://ramibrary.gitbook.io/android/"
     }
