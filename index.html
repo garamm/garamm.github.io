@@ -22,7 +22,7 @@
 
 <body>
     <div id="app">
-        <header id='header'></header>
+        {% include header.html %}
 
         <div class="columns is-desktop book_list">
             <div class="column card book_item" v-for="book in bookList"
@@ -47,9 +47,6 @@
         created: function () {
             this.getBookList();
             window.addEventListener('resize', this.onResizeWindow);
-        },
-        mounted: function () {
-            $("#header").load("/_components/header.html");
         },
         destroyed: function() {
             window.removeEventListener('resize', this.onResizeWindow)
