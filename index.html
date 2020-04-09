@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,41 +10,103 @@
     <link rel="stylesheet" href="https://unpkg.com/buefy/dist/buefy.min.css">
 
     <!-- vue -->
-    <script src=https://cdn.jsdelivr.net/npm/promise-polyfill@8.1/dist/polyfill.min.js></script><!-- vue ie11 -->
+    <script src=https://cdn.jsdelivr.net/npm/promise-polyfill@8.1/dist/polyfill.min.js></script><!-- for ie11 -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/buefy/dist/buefy.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <!-- jquery -->
     <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
 
-    <!-- include html -->
-    <script src="/_components/includeHTML.js"></script>
-
     <title>ramibrary</title>
 </head>
 
 <body>
     <div id="app">
-        <header include-html="/_components/header.html"></header>
+        <header id='header'></header>
+
+        <div class="columns is-desktop book_list">
+            <div class="column card book_item" v-for="book in bookList"
+                v-bind:style="{ backgroundColor: book.bookCoverColor, color: book.bookFontColor }"
+                @click="bookClick(book.bookLink)">
+                <p class="book_title">{{ book.bookName }}</p>
+                <img class="book_icon" v-bind:src="book.bookIcon" />
+            </div>
+        </div>
+
     </div>
-
-
-    <script>
-        new Vue({
-            el: '#app',
-            data: {
-            },
-            created: function () {
-                
-            },
-            methods: {
-            },
-        });
-    </script>
-
-    <style>
-    </style>
-
 </body>
+
+<script>
+
+    new Vue({
+        el: '#app',
+        data: {
+            bookList: [],
+            display: 5,
+        },
+        created: function () {
+            this.getBookList();
+            window.addEventListener('resize', this.onResizeWindow);
+        },
+        mounted: function () {
+            $("#header").load("/_components/header.html");
+        },
+        destroyed: function() {
+            window.removeEventListener('resize', this.onResizeWindow)
+        },
+        methods: {
+            getBookList: function () {
+                let self = this;
+                axios.get('bookList.json')
+                    .then(function (result) {
+                        self.bookList = result.data;
+                    }).catch(function (e) {
+                        console.error(e);
+                    });
+            },
+            bookClick: function (bookLink) {
+                location.href = bookLink;
+            },
+            onResizeWindow() {
+                if (window.innerWidth > 960) {
+                this.display = 5
+                } else {
+                this.display = 3
+                }
+                console.log(this.display);
+            }
+        },
+    });
+</script>
+
+<style>
+    body {
+        font-size: 15px;
+    }
+
+    .book_list {
+        width: 80%;
+        margin-left: calc(10% - 10px);
+    }
+
+    .book_item {
+        height: 300px;
+        min-width: 250px;
+        max-width: 250px;
+        padding: 20px;
+        margin: 0px 20px 20px 0px;
+    }
+
+    .book_title {
+        font-size: 25px;
+        margin-bottom: 30px;
+    }
+
+    .book_icon {
+        width: 80px;
+        height: 80px;
+        margin-left: calc(50% - 40px);
+    }
+</style>
 
 </html>
