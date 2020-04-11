@@ -5,7 +5,18 @@
         "bookCoverColor": "white",
         "bookTitleTextColor": "#4a4a4a",
         "bookSubTitleTextColor": "#939494",
-        "bookIcon": "/imgs/bi_android.svg",
+        "bookIcon": "/imgs/bi_android.png",
+        "bookIconHeight": "80px",
         "bookLink": "https://ramibrary.gitbook.io/android/"
+    },
+    {
+        "bookTitle": "Spring",
+        "bookSubTitle": "스프링 스터디 자료",
+        "bookCoverColor": "#EBF2F2",
+        "bookTitleTextColor": "#191E1E",
+        "bookSubTitleTextColor": "#939494",
+        "bookIcon": "/imgs/bi_spring.png",
+        "bookIconHeight": "50px",
+        "bookLink": "https://ramibrary.gitbook.io/spring/"
     }
 ]

@@ -2,28 +2,6 @@
 layout: default
 ---
 
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="shortcut icon" href="/imgs/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/buefy/dist/buefy.min.css">
-
-    <!-- vue -->
-    <script src=https://cdn.jsdelivr.net/npm/promise-polyfill@8.1/dist/polyfill.min.js></script><!-- for ie11 -->
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://unpkg.com/buefy/dist/buefy.min.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <!-- jquery -->
-    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
-
-    <title>ramibrary</title>
-</head>
-
 <body>
     <div id="app">
         <div class="columns is-desktop book_list">
@@ -31,7 +9,11 @@ layout: default
                 v-bind:style="{ backgroundColor: book.bookCoverColor, color: book.bookTitleTextColor }"
                 @click="bookClick(book.bookLink)">
                 <span class="book_title"><% book.bookTitle %></span>
-                <img class="book_icon" v-bind:src="book.bookIcon" />
+                <div style="display: flex; flex-direction: row;">
+                    <span style="flex: 1;"></span>
+                    <img v-bind:style="{ height: book.bookIconHeight }" v-bind:src="book.bookIcon" />
+                    <span style="flex: 1;"></span>
+                </div>
                 <p class="book_sub_title"
                 v-bind:style="{ color: book.bookSubTitleTextColor }"><% book.bookSubTitle %></p>
             </div>
@@ -114,12 +96,4 @@ layout: default
         bottom: 0px;
         position: absolute;
     }
-
-    .book_icon {
-        width: 80px;
-        height: 80px;
-        margin-left: calc(50% - 40px);
-    }
 </style>
-
-</html>
