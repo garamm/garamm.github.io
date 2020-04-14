@@ -1,10 +1,99 @@
-<!DOCTYPE html>
-<html>
-<title>HTML Tutorial</title>
+---
+layout: default
+---
+
 <body>
+    <div id="app">
+        <div class="columns is-desktop book_list">
+            <div class="column card book_item" v-for="book in bookList"
+                v-bind:style="{ backgroundColor: book.bookCoverColor, color: book.bookTitleTextColor }"
+                @click="bookClick(book.bookLink)">
+                <span class="book_title"><% book.bookTitle %></span>
+                <div style="display: flex; flex-direction: row;">
+                    <span style="flex: 1;"></span>
+                    <img v-bind:style="{ height: book.bookIconHeight }" v-bind:src="book.bookIcon" />
+                    <span style="flex: 1;"></span>
+                </div>
+                <p class="book_sub_title"
+                v-bind:style="{ color: book.bookSubTitleTextColor }"><% book.bookSubTitle %></p>
+            </div>
+        </div>
 
-<h1>This is a heading</h1>
-<p>This is a paragraph.</p>
-
+    </div>
 </body>
-</html>
+
+<script>
+
+    new Vue({
+        el: '#app',
+        delimiters:['<%', '%>'],        // jekyll에서 사용하는 {{ }}와 겹치기 때문에 임의로 다르게 정의
+        data: {
+            bookList: [],
+            display: 5,
+        },
+        created: function () {
+            this.getBookList();
+            window.addEventListener('resize', this.onResizeWindow);
+        },
+        destroyed: function() {
+            window.removeEventListener('resize', this.onResizeWindow)
+        },
+        methods: {
+            getBookList: function () {
+                let self = this;
+                axios.get('bookList.json')
+                    .then(function (result) {
+                        self.bookList = result.data;
+                    }).catch(function (e) {
+                        console.error(e);
+                    });
+            },
+            bookClick: function (bookLink) {
+                location.href = bookLink;
+            },
+            onResizeWindow() {
+                if (window.innerWidth > 960) {
+                this.display = 5
+                } else {
+                this.display = 3
+                }
+                console.log(this.display);
+            }
+        },
+    });
+</script>
+
+<style>
+    body {
+        font-size: 15px;
+        background-color: #FAFAFA;
+    }
+
+    .book_list {
+        width: 80%;
+        margin-left: calc(10% - 10px);
+    }
+
+    .book_item {
+        height: 300px;
+        min-width: 250px;
+        max-width: 250px;
+        padding: 20px;
+        margin: 0px 20px 20px 0px;
+        position: relative;
+    }
+
+    .book_title {
+        font-size: 25px;
+        margin-bottom: 30px;
+        display: inline-block;
+    }
+
+    .book_sub_title {
+        font-size: 13px;
+        margin-bottom: 30px;
+        right: 20px;
+        bottom: 0px;
+        position: absolute;
+    }
+</style>
