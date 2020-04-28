@@ -8,14 +8,13 @@ layout: default
             <div class="column card book_item" v-for="book in bookList"
                 v-bind:style="{ backgroundColor: book.bookCoverColor, color: book.bookTitleTextColor }"
                 @click="bookClick(book.bookLink)">
-                <span class="book_title"><% book.bookTitle %></span>
+                <span class="book_title">[[ book.bookTitle ]]</span>
                 <div style="display: flex; flex-direction: row;">
                     <span style="flex: 1;"></span>
                     <img v-bind:style="{ height: book.bookIconHeight }" v-bind:src="book.bookIcon" />
                     <span style="flex: 1;"></span>
                 </div>
-                <p class="book_sub_title"
-                v-bind:style="{ color: book.bookSubTitleTextColor }"><% book.bookSubTitle %></p>
+                <p class="book_sub_title" v-bind:style="{ color: book.bookSubTitleTextColor }">[[ book.bookSubTitle ]]</p>
             </div>
         </div>
 
@@ -26,7 +25,7 @@ layout: default
 
     new Vue({
         el: '#app',
-        delimiters:['<%', '%>'],        // jekyll에서 사용하는 {{ }}와 겹치기 때문에 임의로 다르게 정의
+        delimiters:['[[', ']]'],        // jekyll에서 사용하는 {{ }}와 겹치기 때문에 임의로 다르게 정의
         data: {
             bookList: [],
             display: 5,
