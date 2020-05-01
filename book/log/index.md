@@ -52,7 +52,8 @@ https://blog.naver.com/goodjob_company/221632071709
 ---
 ### 보여줄 데이터를 어떻게 수집할건가?
 
-
+https://m.blog.naver.com/PostView.nhn?blogId=pyj721aa&logNo=221629786624&proxyReferer=https:%2F%2Fwww.google.com%2F
+<br>
 https://www.twinword.co.kr/blog/what-is-the-most-missing-seo-tactics-in-korea/<br>
 
 
