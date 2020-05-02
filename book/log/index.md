@@ -27,14 +27,21 @@ https://post.naver.com/viewer/postView.nhn?volumeNo=7001715&memberNo=10092891
   - 참여 수준
   - 유저 상태
 
+- ZMOT<br>
+https://mrseo.co.kr/google%EC%9D%B4-%EB%A7%90%ED%95%98%EB%8A%94-zmot-%EC%9D%B4%EB%9E%80/
+
 - 그로스해킹 - AARRR<br>
 
 - 사용자 행동 분석<br>
 
-https://www.slideshare.net/MikyungKang1/ss-41440322<br>
-https://m.blog.naver.com/infighter_jh/220933481790<br>
-https://www.slideshare.net/leoyang991/ss-90038927<br>
-https://www.slideshare.net/leoyang991/ss-32644623<br>
+https://www.slideshare.net/MikyungKang1/ss-41440322
+<br>
+https://m.blog.naver.com/infighter_jh/220933481790
+<br>
+https://www.slideshare.net/leoyang991/ss-90038927
+<br>
+https://www.slideshare.net/leoyang991/ss-32644623
+<br>
 
 - 마케팅 심리학<br>
 https://blog.naver.com/goodjob_company/221632071709
@@ -54,11 +61,15 @@ https://blog.naver.com/goodjob_company/221632071709
 
 https://m.blog.naver.com/PostView.nhn?blogId=pyj721aa&logNo=221629786624&proxyReferer=https:%2F%2Fwww.google.com%2F
 <br>
-https://www.twinword.co.kr/blog/what-is-the-most-missing-seo-tactics-in-korea/<br>
+https://www.twinword.co.kr/blog/what-is-the-most-missing-seo-tactics-in-korea/
+<br>
 
 
 ---
 ### 어떻게 만들건가?
 
 
-https://woowabros.github.io/woowabros/2017/07/30/logdata.html<br>
+https://woowabros.github.io/woowabros/2017/07/30/logdata.html
+<br>
+https://blog.naver.com/tmondev/221556403495
+<br>
