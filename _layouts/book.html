@@ -1,7 +1,59 @@
+<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
 <!DOCTYPE html>
-  <body>
-    {{ content }}
-    <br>
-    {{ site.type }}
-  </body>
+
+<body>
+  <div class="content_wrapper">
+    <div id="menu">
+    </div>
+    <div id="content">
+      {{ content }}
+    </div>
+  </div>
+</body>
+
 </html>
+
+<script>
+  window.onload = function() {
+    $.ajax({
+      type: 'GET',
+      url: 'data.json',
+      success: function (result) {
+        var html = "<ul>";
+        let arr = result.contents;
+        for (var i = 0; i < arr.length; i++) {
+          var item = arr[i];
+          html += "<li onclick='location.href=\"" + item.url + "\"'>" + item.title + "</li>";
+        }
+        html += "</ul>";
+        document.getElementById("menu").innerHtml = html;
+        console.log(html);
+      }, error: function (error) {
+        console.log(error);
+      }
+    });
+  }
+
+</script>
+
+<style>
+  body {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .content_wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+
+  #menu {
+    width: 300px;
+    margin-right: 50px;
+    background-color: #cdcdcd;
+  }
+
+  #content {
+    flex: 1;
+  }
+</style>

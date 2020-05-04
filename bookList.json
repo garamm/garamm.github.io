@@ -7,7 +7,7 @@
         "bookSubTitleTextColor": "#939494",
         "bookIcon": "/imgs/bi_android.png",
         "bookIconHeight": "80px",
-        "bookLink": "https://ramibrary.gitbook.io/android/"
+        "bookLink": "/book/android"
     },
     {
         "bookTitle": "Spring",
@@ -17,6 +17,6 @@
         "bookSubTitleTextColor": "#939494",
         "bookIcon": "/imgs/bi_spring.png",
         "bookIconHeight": "50px",
-        "bookLink": "https://ramibrary.gitbook.io/spring/"
+        "bookLink": "/book/spring"
     }
 ]
