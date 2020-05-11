@@ -18,5 +18,15 @@
         "bookIcon": "/imgs/bi_spring.png",
         "bookIconHeight": "50px",
         "bookLink": "/book/spring"
+    },
+    {
+        "bookTitle": "ELK",
+        "bookSubTitle": "with Docker",
+        "bookCoverColor": "white",
+        "bookTitleTextColor": "#4a4a4a",
+        "bookSubTitleTextColor": "#939494",
+        "bookIcon": "/imgs/bi_elk.png",
+        "bookIconHeight": "50px",
+        "bookLink": "/book/elk"
     }
 ]
