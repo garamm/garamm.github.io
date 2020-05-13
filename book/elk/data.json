@@ -4,6 +4,10 @@
         {
             "title": "1. 설치",
             "url": "/book/elk/index"
+        },
+        {
+            "title": "2. Spring boot 연동",
+            "url": "/book/elk/springboot"
         }
     ]
 }
