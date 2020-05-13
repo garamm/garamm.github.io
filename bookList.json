@@ -28,5 +28,15 @@
         "bookIcon": "/imgs/bi_elk.png",
         "bookIconHeight": "50px",
         "bookLink": "/book/elk"
+    },
+    {
+        "bookTitle": "알고리즘",
+        "bookSubTitle": "알고리즘 개념 정리 및 문제 풀기",
+        "bookCoverColor": "white",
+        "bookTitleTextColor": "#4a4a4a",
+        "bookSubTitleTextColor": "#939494",
+        "bookIcon": "/imgs/trail-sign-outline.svg",
+        "bookIconHeight": "50px",
+        "bookLink": "/book/algorithm"
     }
 ]
