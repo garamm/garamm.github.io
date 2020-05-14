@@ -4,8 +4,8 @@ layout: default
 
 <body>
     <div id="app">
-        <div class="columns is-desktop book_list">
-            <div class="column card book_item" v-for="book in bookList"
+        <div v-for="rows in gridList" style="text-align: center;">
+            <div v-for="book in rows" v-if="book != null" class="card book_item"
                 v-bind:style="{ backgroundColor: book.bookCoverColor, color: book.bookTitleTextColor }"
                 @click="bookClick(book.bookLink)">
                 <span class="book_title">[[ book.bookTitle ]]</span>
@@ -17,7 +17,6 @@ layout: default
                 <p class="book_sub_title" v-bind:style="{ color: book.bookSubTitleTextColor }">[[ book.bookSubTitle ]]</p>
             </div>
         </div>
-
     </div>
 </body>
 
@@ -28,7 +27,8 @@ layout: default
         delimiters:['[[', ']]'],        // jekyll에서 사용하는 {{ }}와 겹치기 때문에 임의로 다르게 정의
         data: {
             bookList: [],
-            display: 5,
+            gridList: [],
+            gridMaxCount: 5,
         },
         created: function () {
             this.getBookList();
@@ -43,43 +43,79 @@ layout: default
                 axios.get('bookList.json')
                     .then(function (result) {
                         self.bookList = result.data;
+                        self.makeGridList();
                     }).catch(function (e) {
                         console.error(e);
                     });
             },
+            makeGridList: function() {
+                var self =this;
+                var remain = this.bookList.length % self.gridMaxCount;            
+                var lines = this.bookList.length / self.gridMaxCount;
+                if (remain != 0) {
+                    lines = lines + 1;
+                }
+                lines = Math.floor(lines);
+                
+                for (var i = 0; i < lines; i++) {
+                    var subList = self.bookList.slice((i * self.gridMaxCount), (i * self.gridMaxCount) + self.gridMaxCount);
+                    if (subList.length < self.gridMaxCount) {
+                        var loopCount = self.gridMaxCount - subList.length;
+                        for (var j = 0; j < loopCount; j++) {
+                            subList.push(null);
+                        }
+                    }
+                    self.gridList.push(subList);
+                }
+            },
             bookClick: function (bookLink) {
                 location.href = bookLink;
             },
-            onResizeWindow() {
+            onResizeWindow: function() {
                 if (window.innerWidth > 960) {
-                this.display = 5
+                    this.gridMaxCount = 5;
                 } else {
-                this.display = 3
+                    this.gridMaxCount = 3;
                 }
-                console.log(this.display);
             }
         },
     });
 </script>
 
 <style>
+
+    /* default 레이아웃의 속성 초기화 시작 */
+    .wrapper { 
+        margin: 0px;
+        max-width: 100%;
+        min-width: 100%;
+    }
+
+    div {
+        width: 100%;
+    }
+
     body {
         font-size: 15px;
         background-color: #FAFAFA;
     }
 
+    /* default 레이아웃의 속성 초기화 끝 */
+    
+
     .book_list {
         width: 80%;
-        margin-left: calc(10% - 10px);
     }
 
     .book_item {
         height: 300px;
-        min-width: 250px;
-        max-width: 250px;
+        width: 250px;
         padding: 20px;
         margin: 0px 20px 20px 0px;
+        display: inline-block;
+        vertical-align: top;
         position: relative;
+        text-align: left;
     }
 
     .book_title {
