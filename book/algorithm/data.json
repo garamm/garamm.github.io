@@ -3,7 +3,41 @@
     "contents": [
         {
             "title": "정렬",
-            "url": "/book/algorithm/index"
+            "url": "/book/algorithm/index",
+            "sub": [
+                {
+                    "title": "삽입정렬",
+                    "url": "/book/algorithm/sort-insertion"
+                },
+                {
+                    "title": "버블정렬",
+                    "url": "/book/algorithm/sort-bubble"
+                },
+                {
+                    "title": "선택정렬",
+                    "url": ""
+                },
+                {
+                    "title": "힙정렬",
+                    "url": ""
+                },
+                {
+                    "title": "병합정렬",
+                    "url": ""
+                },
+                {
+                    "title": "퀵정렬",
+                    "url": ""
+                }
+            ]
+        },
+        {
+            "title": "그리디(Greedy)",
+            "url": ""
+        },
+        {
+            "title": "DFS, BFS",
+            "url": ""
         }
     ]
 }

@@ -5,13 +5,16 @@
   <div class="header">
     <img src="/imgs/library-outline.svg" onclick="location.href='/'">
     <div>
-      <span id="bookTitle"></span>
+        <span id="bookTitle"></span>
     </div>
   </div>
   <div class="content_wrapper">
-    <div id="menu"></div>
     <div id="content">
-      {{ content }}
+      <div style="margin-bottom: 30px;">
+          {{ content }}
+      </div>
+      <hr>
+      <button style="float: right; width: 80px; height: 30px; border: 1px solid #cccccc;" onclick="location.href='/book/algorithm/solve'">목록</button>
     </div>
   </div>
 </body>
@@ -22,22 +25,8 @@
   window.onload = function () {
     $.ajax({
       type: 'GET',
-      url: 'data.json',
+      url: '../data.json',
       success: function (result) {
-        var html = "<ul>";
-        let arr = result.contents;
-        for (var i = 0; i < arr.length; i++) {
-          var item = arr[i];
-          html += "<li onclick='location.href=\"" + item.url + "\"'>" + item.title + "</li>";
-          if(item.sub != null) {
-              for(var j=0; j<item.sub.length; j++) {
-                  var subItem = item.sub[j];
-                  html += "<li onclick='location.href=\"" + subItem.url + "\"'>&nbsp;&nbsp;&nbsp;" + subItem.title + "</li>";
-              }
-          }
-        }
-        html += "</ul>";
-        $("#menu").html(html);
         $("#bookTitle").html(result.title);
       }, error: function (error) {
         console.log(error);
