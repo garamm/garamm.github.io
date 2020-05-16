@@ -2,12 +2,17 @@
     "title": "알고리즘 문제풀이",
     "contents": [
         {
-            "title": "[프로그래머스] H-index",
-            "url": "/book/algorithm/solve/programers/h-index"
-        },
-        {
-            "title": "[프로그래머스] K번째 수",
-            "url": ""
+            "group": "프로그래머스",
+            "solve": [
+                {
+                    "title": "H-index",
+                    "url": "/book/algorithm/solve/programers/h-index"
+                },
+                {
+                    "title": "K번째 수",
+                    "url": ""
+                }
+            ]
         }
     ]
 }

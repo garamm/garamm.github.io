@@ -2,22 +2,28 @@
 <!DOCTYPE html>
 
 <head>
+  <link rel="stylesheet" href="/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-  <div class="header">
-    <img src="/imgs/library-outline.svg" onclick="location.href='/'">
-    <div>
-      <span id="bookTitle"></span>
-    </div>
-  </div>
-  <div class="content_wrapper">
+  <div style="display: flex; flex-direction: row;">
     <div id="menu"></div>
-    <div id="content">
-      {{ content }}
+    <div class="content_wrapper">
+      <div class="header">
+        <img src="/imgs/menu-outline.svg" id="menuBtn" onclick="clickMenu()">
+        <img src="/imgs/library-outline.svg" onclick="location.href='/'">
+        <div>
+          <span id="bookTitle"></span>
+        </div>
+      </div>
+      <div id="content">
+        {{ content }}
+      </div>
     </div>
+    
   </div>
+  
 </body>
 
 </html>
@@ -28,17 +34,28 @@
       type: 'GET',
       url: 'data.json',
       success: function (result) {
+        let url = window.location.href;
         var html = "<ul>";
         let arr = result.contents;
         for (var i = 0; i < arr.length; i++) {
           var item = arr[i];
-          html += "<li onclick='location.href=\"" + item.url + "\"'>" + item.title + "</li>";
-          if(item.sub != null) {
-              for(var j=0; j<item.sub.length; j++) {
-                  var subItem = item.sub[j];
-                  html += "<li onclick='location.href=\"" + subItem.url + "\"'>&nbsp;&nbsp;&nbsp;" + subItem.title + "</li>";
-              }
+          if (item.url != "" && url.includes(item.url)) {
+            html += "<li style='color: #008CFF; font-weight: bold' onclick='location.href=\"" + item.url + "\"'>" + item.title + "</li>";
+          } else {
+            html += "<li style='color: #374149; font-weight: bold' onclick='location.href=\"" + item.url + "\"'>" + item.title + "</li>";
           }
+
+          if (item.sub != null) {
+            for (var j = 0; j < item.sub.length; j++) {
+              var subItem = item.sub[j];
+              if (subItem.url != "" && url.includes(subItem.url)) {
+                html += "<li style='color: #008CFF;' onclick='location.href=\"" + subItem.url + "\"'>&nbsp;&nbsp;&nbsp;" + subItem.title + "</li>";
+              } else {
+                html += "<li color: #374149; onclick='location.href=\"" + subItem.url + "\"'>&nbsp;&nbsp;&nbsp;" + subItem.title + "</li>";
+              }
+            }
+          }
+          html += "<hr>"
         }
         html += "</ul>";
         $("#menu").html(html);
@@ -49,75 +66,13 @@
     });
   }
 
+  function clickMenu() {
+    if ($("#menu").is(":visible")) {
+      $("#menu").hide();
+    } else {
+      $("#menu").show();
+    }
+
+  }
+
 </script>
-
-<style>
-  body {
-    margin: 0px;
-    padding: 0px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  img {
-    max-width: 700px;
-    height: auto;
-  }
-
-  .content_wrapper {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    margin: 0px;
-    flex: 1;
-  }
-
-  #menu {
-    min-width: 250px;
-    background-color: #FAFAFA;
-  }
-
-  #content {
-    flex: 1;
-    padding: 30px;
-  }
-
-  ul {
-    list-style: none;
-    margin: 0px;
-    padding: 15px;
-  }
-
-  li {
-    cursor: pointer;
-    padding: 10px 0px;
-  }
-
-  .header {
-    width: calc(100% - 40px);
-    padding: 20px;
-    display: flex;
-    flex-direction: row;
-    border-bottom: 1px solid #DFDFDF;
-  }
-
-  .header img {
-    width: 40px;
-    height: 40px;
-    border-radius: 5px;
-    margin-right: 20px;
-  }
-
-  .hedaer div {
-    display: table;
-    height: 40px;
-  }
-
-  .header div span {
-    font-size: 25px;
-    display: table-cell;
-    text-align: left;
-    vertical-align: middle;
-    height: 40px;
-  }
-</style>

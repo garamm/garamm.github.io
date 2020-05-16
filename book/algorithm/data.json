@@ -38,6 +38,10 @@
         {
             "title": "DFS, BFS",
             "url": ""
+        },
+        {
+            "title": "문제풀이",
+            "url": "/book/algorithm/solve"
         }
     ]
 }
