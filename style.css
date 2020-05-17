@@ -129,9 +129,12 @@ code {
   padding: 15px;
 }
 
+li {
+  padding: 10px 0px;
+}
+
 #menu ul li {
   cursor: pointer;
-  padding: 10px 0px;
 }
 
 
@@ -150,6 +153,7 @@ hr {
 .groupTitle ul li {
   font-size: 15px;
   font-weight: normal;
+  cursor: pointer;
 }
 
 

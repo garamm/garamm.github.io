@@ -6,16 +6,16 @@
             "url": "/book/algorithm/index",
             "sub": [
                 {
+                    "title": "선택정렬",
+                    "url": "/book/algorithm/sort-selection"
+                },
+                {
                     "title": "삽입정렬",
                     "url": "/book/algorithm/sort-insertion"
                 },
                 {
                     "title": "버블정렬",
                     "url": "/book/algorithm/sort-bubble"
-                },
-                {
-                    "title": "선택정렬",
-                    "url": ""
                 },
                 {
                     "title": "힙정렬",
