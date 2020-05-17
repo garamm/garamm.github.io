@@ -35,8 +35,8 @@
         "bookCoverColor": "#F8F9F8",
         "bookTitleTextColor": "#4a4a4a",
         "bookSubTitleTextColor": "#939494",
-        "bookIcon": "/imgs/trail-sign-outline.svg",
-        "bookIconHeight": "50px",
+        "bookIcon": "/imgs/shapes-outline.svg",
+        "bookIconHeight": "70px",
         "bookLink": "/book/algorithm/index"
     }
 ]
