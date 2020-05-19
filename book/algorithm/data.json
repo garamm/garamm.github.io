@@ -10,13 +10,14 @@
                     "url": "/book/algorithm/sort-selection"
                 },
                 {
-                    "title": "삽입정렬",
-                    "url": "/book/algorithm/sort-insertion"
-                },
-                {
                     "title": "버블정렬",
                     "url": "/book/algorithm/sort-bubble"
                 },
+                {
+                    "title": "삽입정렬",
+                    "url": "/book/algorithm/sort-insertion"
+                },
+                
                 {
                     "title": "힙정렬",
                     "url": ""

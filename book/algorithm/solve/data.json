@@ -5,12 +5,12 @@
             "group": "프로그래머스",
             "solve": [
                 {
-                    "title": "H-index",
-                    "url": "/book/algorithm/solve/programers/h-index"
+                    "title": "정렬/H-Index",
+                    "url": "/book/algorithm/solve/programmers/h-index"
                 },
                 {
-                    "title": "K번째 수",
-                    "url": ""
+                    "title": "정렬/K번째 수",
+                    "url": "/book/algorithm/solve/programmers/kth-number"
                 }
             ]
         }

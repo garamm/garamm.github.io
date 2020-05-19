@@ -80,3 +80,5 @@ public class Solve {
 5회전 : [3, 5, 6, 7, 9]
 */
 ```
+
+[참고: 위키백과](https://ko.wikipedia.org/wiki/%EC%84%A0%ED%83%9D_%EC%A0%95%EB%A0%AC)
