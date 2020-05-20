@@ -1,9 +1,7 @@
 ---
 layout: book
----
-
-
-ELK (with Docker) 환경 설정
+title: "ELK (with Docker) 환경 설정"
+date: "2020-05-11"
 ---
 
 ### 서버 port 확인

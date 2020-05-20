@@ -157,6 +157,16 @@ hr {
 }
 
 
+table, th, td {
+  border-collapse:collapse;
+  border:1px #cccccc solid;
+  padding: 5px;
+}
+
+th {
+  background-color: #FAFAFA;
+}
+
 /* 미디어쿼리 */
 /* 
   ##Device = Desktops

@@ -17,10 +17,16 @@
         <img src="/imgs/menu-outline.svg" id="menuBtn" onclick="clickMenu()">
         <img src="/imgs/library-outline.svg" onclick="location.href='/'">
         <div>
-          <span id="bookTitle"></span>
+          <span>{{ page.title }}</span>
         </div>
       </div>
       <div id="content">
+        <div>
+          <span style="font-size: 23px; font-weight: bold; margin-right: 10px;">
+            {{ page.title }}
+          </span>
+          <span># {{ page.date }}</span>
+        </div>
         {{ content }}
       </div>
     </div>
@@ -62,7 +68,6 @@
         }
         html += "</ul>";
         $("#menu").html(html);
-        $("#bookTitle").html(result.title);
       }, error: function (error) {
         console.log(error);
       }

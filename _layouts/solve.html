@@ -12,12 +12,18 @@
   <div class="header">
     <img src="/imgs/library-outline.svg" onclick="location.href='/'">
     <div>
-        <span id="bookTitle"></span>
+        <span>{{ page.title }}</span>
     </div>
   </div>
   <div id="content">
     <div style="margin-bottom: 30px;">
-        {{ content }}
+      <div>
+        <span style="font-size: 23px; font-weight: bold; margin-right: 10px;">
+          {{ page.title }}
+        </span>
+        <span># {{ page.date }}</span>
+      </div>
+      {{ content }}
     </div>
     <hr>
     <button style="float: right; width: 80px; height: 30px; border: 1px solid #cccccc;" onclick="location.href='/book/algorithm/solve'">목록</button>
@@ -25,18 +31,3 @@
 </body>
 
 </html>
-
-<script>
-  window.onload = function () {
-    $.ajax({
-      type: 'GET',
-      url: '../data.json',
-      success: function (result) {
-        $("#bookTitle").html(result.title);
-      }, error: function (error) {
-        console.log(error);
-      }
-    });
-  }
-
-</script>
