@@ -17,17 +17,16 @@
                     "title": "삽입정렬",
                     "url": "/book/algorithm/sort-insertion"
                 },
-                
+                {
+                    "title": "퀵정렬",
+                    "url": "/book/algorithm/sort-quick"
+                },
                 {
                     "title": "힙정렬",
                     "url": ""
                 },
                 {
                     "title": "병합정렬",
-                    "url": ""
-                },
-                {
-                    "title": "퀵정렬",
                     "url": ""
                 }
             ]
