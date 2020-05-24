@@ -22,8 +22,8 @@
                     "url": "/book/algorithm/sort-quick"
                 },
                 {
-                    "title": "힙정렬",
-                    "url": ""
+                    "title": "병합정렬",
+                    "url": "/book/algorithm/sort-merge"
                 },
                 {
                     "title": "병합정렬",
