@@ -87,4 +87,4 @@ public class Solve {
 */
 ```
 
-[출처](https://blog.naver.com/ndb796/221227934987)
+[참고](https://blog.naver.com/ndb796/221227934987)

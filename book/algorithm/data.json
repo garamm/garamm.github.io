@@ -26,8 +26,8 @@
                     "url": "/book/algorithm/sort-merge"
                 },
                 {
-                    "title": "병합정렬",
-                    "url": ""
+                    "title": "힙정렬",
+                    "url": "/book/algorithm/sort-heap"
                 }
             ]
         },
