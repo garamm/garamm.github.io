@@ -28,6 +28,10 @@
                 {
                     "title": "힙정렬",
                     "url": "/book/algorithm/sort-heap"
+                },
+                {
+                    "title": "계수정렬",
+                    "url": "/book/algorithm/sort-counting"
                 }
             ]
         },
