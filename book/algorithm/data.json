@@ -32,6 +32,10 @@
                 {
                     "title": "계수정렬",
                     "url": "/book/algorithm/sort-counting"
+                },
+                {
+                    "title": "기수정렬",
+                    "url": "/book/algorithm/sort-radix"
                 }
             ]
         },
