@@ -167,6 +167,9 @@ th {
   background-color: #FAFAFA;
 }
 
+.bookIcon {
+  width: auto;
+}
 /* 미디어쿼리 */
 /* 
   ##Device = Desktops
