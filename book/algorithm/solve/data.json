@@ -1,18 +1,22 @@
 {
-    "title": "알고리즘 문제풀이",
-    "contents": [
+  "title": "알고리즘 문제풀이",
+  "contents": [
+    {
+      "group": "프로그래머스",
+      "solve": [
         {
-            "group": "프로그래머스",
-            "solve": [
-                {
-                    "title": "정렬/H-Index",
-                    "url": "/book/algorithm/solve/programmers/h-index"
-                },
-                {
-                    "title": "정렬/K번째 수",
-                    "url": "/book/algorithm/solve/programmers/kth-number"
-                }
-            ]
+          "title": "정렬/H-Index",
+          "url": "/book/algorithm/solve/programmers/h-index"
+        },
+        {
+          "title": "정렬/K번째 수",
+          "url": "/book/algorithm/solve/programmers/kth-number"
+        },
+        {
+          "title": "정렬/가장 큰 수",
+          "url": "/book/algorithm/solve/programmers/largest-number"
         }
-    ]
+      ]
+    }
+  ]
 }
