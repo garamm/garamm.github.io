@@ -17,6 +17,15 @@
           "url": "/book/algorithm/solve/programmers/largest-number"
         }
       ]
+    },
+    {
+      "group": "알고리즘 퍼즐 68",
+      "solve": [
+        {
+          "title": "01. 앞뒤가 같은 10진수 만들기",
+          "url": "/book/algorithm/solve/algorithm-puzzle-68/01"
+        }
+      ]
     }
   ]
 }
