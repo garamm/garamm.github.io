@@ -40,11 +40,15 @@
             ]
         },
         {
-            "title": "그리디(Greedy)",
-            "url": ""
+            "title": "너비 우선 탐색 BFS",
+            "url": "/book/algorithm/bfs"
         },
         {
-            "title": "DFS, BFS",
+            "title": "깊이 우선 탐색 DFS",
+            "url": "/book/algorithm/dfs"
+        },
+        {
+            "title": "그리디(Greedy)",
             "url": ""
         },
         {
