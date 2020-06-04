@@ -19,6 +19,14 @@
         {
           "title": "해시/완주하지 못한 선수",
           "url": "/book/algorithm/solve/programmers/an-uncompleted-player"
+        },
+        {
+          "title": "전화번호 목록",
+          "url": "/book/algorithm/solve/programmers/phone-number-list"
+        },
+        {
+          "title": "위장",
+          "url": "/book/algorithm/solve/programmers/camouflage"
         }
       ]
     },
