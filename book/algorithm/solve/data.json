@@ -21,12 +21,16 @@
           "url": "/book/algorithm/solve/programmers/an-uncompleted-player"
         },
         {
-          "title": "전화번호 목록",
+          "title": "해시/전화번호 목록",
           "url": "/book/algorithm/solve/programmers/phone-number-list"
         },
         {
-          "title": "위장",
+          "title": "해시/위장",
           "url": "/book/algorithm/solve/programmers/camouflage"
+        },
+        {
+          "title": "해시/베스트앨범 - 진행중",
+          "url": "/book/algorithm/solve/programmers/best-album"
         }
       ]
     },
