@@ -1,0 +1,24 @@
+<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<!DOCTYPE html>
+
+<head>
+  <link rel="stylesheet" href="/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/9.5.0/styles/default.min.css">
+  <script src="//cdn.jsdelivr.net/highlight.js/9.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+  <div class="header">
+    <img src="/imgs/library-outline.svg" onclick="location.href='/'">
+    <div>
+        <span>{{ page.title }}</span>
+        <span style="font-size: 15px;">&nbsp;&nbsp;&nbsp;# {{ page.date }}</span>
+    </div>
+  </div>
+  <div id="content">
+      {{ content }}
+  </div>
+</body>
+
+</html>

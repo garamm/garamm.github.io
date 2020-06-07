@@ -38,5 +38,15 @@
         "bookIcon": "/imgs/shapes-outline.svg",
         "bookIconHeight": "70px",
         "bookLink": "/book/algorithm/index"
+    },
+    {
+        "bookTitle": "Python 3",
+        "bookSubTitle": "파이썬 한장정리",
+        "bookCoverColor": "white",
+        "bookTitleTextColor": "#4a4a4a",
+        "bookSubTitleTextColor": "#939494",
+        "bookIcon": "/imgs/bi_python.png",
+        "bookIconHeight": "70px",
+        "bookLink": "/book/python3/index"
     }
 ]
