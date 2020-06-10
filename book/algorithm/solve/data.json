@@ -44,6 +44,10 @@
         {
           "title": "02. 수열의 사칙연산",
           "url": "/book/algorithm/solve/algorithm-puzzle-68/02"
+        },
+        {
+          "title": "03. 카드를 뒤집어라",
+          "url": "/book/algorithm/solve/algorithm-puzzle-68/03"
         }
       ]
     }
