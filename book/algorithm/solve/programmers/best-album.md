@@ -1,7 +1,7 @@
 ---
 layout: solve
 title: "해시/베스트앨범"
-date: "2020-06-07"
+date: "2020-06-13"
 ---
 
 ### 문제 설명
@@ -47,5 +47,57 @@ pop 장르는 3,100회 재생되었으며, pop 노래는 다음과 같습니다.
 ### 문제풀이
 
 ```java
+import java.util.*;
 
+class Solution {
+    public int[] solution(String[] genres, int[] plays) {
+        // HashMap<장르, List<HashMap<순번, 플레이횟수>> 의 구조를 갖는 HashMap 생성
+        HashMap<String, ArrayList<HashMap<String, Integer>>> map = new HashMap<>();
+        HashMap<String, Integer> average = new HashMap<>(); // 장르별 플레이 횟수 합계 저장하는 해시맵
+
+        // 위의 구조에 맞게 데이터 추가
+        for (int i = 0; i < genres.length; i++) {
+            String g = genres[i];
+            ArrayList<HashMap<String, Integer>> list = new ArrayList<>();
+            if (map.get(g) != null) {
+                list = map.get(g);
+                average.put(g, average.get(g) + plays[i]);
+            } else {
+                average.put(g, plays[i]);
+            }
+            HashMap<String, Integer> m = new HashMap<>();
+            m.put("index", i);
+            m.put("plays", plays[i]);
+            list.add(m);
+            map.put(g, list);
+        }
+
+        // 플레이 횟수의 총합이 많은 순서대로 정렬
+        List<Map.Entry<String, Integer>> list_entries = new ArrayList<Map.Entry<String, Integer>>(average.entrySet());
+        Collections.sort(list_entries, new Comparator<Map.Entry<String, Integer>>() {
+            public int compare(Map.Entry<String, Integer> obj1, Map.Entry<String, Integer> obj2) {
+                return obj2.getValue().compareTo(obj1.getValue());
+            }
+        });
+
+        for (String s : map.keySet()) {
+            // 장르별 플레이 횟수가 많은 순서대로 정렬
+            map.get(s).sort(Comparator.comparing(
+                    m -> m.get("plays"),
+                    Comparator.nullsLast(Comparator.reverseOrder()))
+            );
+        }
+
+        List<Integer> result = new ArrayList<>();
+
+        for(Map.Entry e : list_entries) {
+            List<HashMap<String, Integer>> playList = map.get(e.getKey());
+            result.add(playList.get(0).get("index"));
+            if(playList.size() != 1){
+                result.add(playList.get(1).get("index"));
+            }
+        }
+        return result.stream().mapToInt(Integer::intValue).toArray();
+    }
+}
 ```
