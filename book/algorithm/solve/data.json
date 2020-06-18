@@ -29,7 +29,7 @@
           "url": "/book/algorithm/solve/programmers/camouflage"
         },
         {
-          "title": "해시/베스트앨범 - 진행중",
+          "title": "해시/베스트앨범",
           "url": "/book/algorithm/solve/programmers/best-album"
         }
       ]
@@ -48,6 +48,10 @@
         {
           "title": "03. 카드를 뒤집어라",
           "url": "/book/algorithm/solve/algorithm-puzzle-68/03"
+        },
+        {
+          "title": "04. 막대 자르기",
+          "url": "/book/algorithm/solve/algorithm-puzzle-68/04"
         }
       ]
     }
