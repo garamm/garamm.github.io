@@ -40,13 +40,13 @@
         "bookLink": "/book/algorithm/index"
     },
     {
-        "bookTitle": "Python 3",
-        "bookSubTitle": "파이썬 한장정리",
+        "bookTitle": "Go 시작하기",
+        "bookSubTitle": "Go 간단정리!",
         "bookCoverColor": "white",
         "bookTitleTextColor": "#4a4a4a",
         "bookSubTitleTextColor": "#939494",
-        "bookIcon": "/imgs/bi_python.png",
+        "bookIcon": "/imgs/bi_golang.svg",
         "bookIconHeight": "70px",
-        "bookLink": "/book/python3/index"
+        "bookLink": "/book/go/index"
     }
 ]
