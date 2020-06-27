@@ -31,6 +31,10 @@
         {
           "title": "해시/베스트앨범",
           "url": "/book/algorithm/solve/programmers/best-album"
+        },
+        {
+          "title": "스택, 큐/다리를 지나는 트럭",
+          "url": "/book/algorithm/solve/programmers/truck-passing-a-bridge"
         }
       ]
     },
