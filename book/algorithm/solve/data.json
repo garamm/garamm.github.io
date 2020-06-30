@@ -54,8 +54,20 @@
           "url": "/book/algorithm/solve/algorithm-puzzle-68/03"
         },
         {
-          "title": "04. 막대 자르기",
+          "title": "04. 막대 자르기 (미해결)",
           "url": "/book/algorithm/solve/algorithm-puzzle-68/04"
+        },
+        {
+          "title": "05. 아직도 현금으로 계산하다니!",
+          "url": "/book/algorithm/solve/algorithm-puzzle-68/05"
+        },
+        {
+          "title": "06. 콜라츠 추측",
+          "url": "/book/algorithm/solve/algorithm-puzzle-68/06"
+        },
+        {
+          "title": "07. 날짜의 2진수 변환",
+          "url": "/book/algorithm/solve/algorithm-puzzle-68/07"
         }
       ]
     }
