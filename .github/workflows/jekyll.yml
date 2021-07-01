@@ -1,9 +1,7 @@
 name: Jekyll CI
 
 on:
-  push:
-    branches:
-      - gh-pages
+  push
 
 jobs:
   jekyll:
@@ -23,3 +21,4 @@ jobs:
     - uses:  helaili/jekyll-action@2.0.3
       env:
         JEKYLL_PAT: ${{ secrets.JEKYLL_PAT }}
+        PUBLISH_BRANCH: gh-pages
