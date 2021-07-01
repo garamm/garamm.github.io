@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang=" en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>[Go] MySQL 사용하기 | Record</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="[Go] MySQL 사용하기" />
+<meta name="author" content="임가람" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Intro" />
+<meta property="og:description" content="Intro" />
+<link rel="canonical" href="/go/2021/03/08/go-mysql.html" />
+<meta property="og:url" content="/go/2021/03/08/go-mysql.html" />
+<meta property="og:site_name" content="Record" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-03-08T20:23:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="[Go] MySQL 사용하기" />
+<script type="application/ld+json">
+{"description":"Intro","mainEntityOfPage":{"@type":"WebPage","@id":"/go/2021/03/08/go-mysql.html"},"url":"/go/2021/03/08/go-mysql.html","@type":"BlogPosting","headline":"[Go] MySQL 사용하기","dateModified":"2021-03-08T20:23:00+00:00","datePublished":"2021-03-08T20:23:00+00:00","author":{"@type":"Person","name":"임가람"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Record" /><!-- Bootstrap -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"> -->
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css">
+<script src="/assets/js/main.js"></script>
+    <!-- <script defer
+    src="https://cdn.jsdelivr.net/combine/npm/popper.js@1.15.0,npm/bootstrap@4/dist/js/bootstrap.min.js"></script> -->
+</head>
+<body><header class="site-header">
+
+    <div class="wrapper"><a class="site-title" rel="author" href="/">Record</a><nav class="site-nav">
+            <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+            <label for="nav-trigger">
+                <span class="menu-icon">
+                    <svg viewBox="0 0 18 15" width="18px" height="15px">
+                        <path
+                            d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z" />
+                    </svg>
+                </span>
+            </label>
+
+            <div class="trigger">
+                
+                    <a class="page-link" href="/about/">About</a>
+                
+                    <a class="page-link" href="/categories/">Categories</a>
+                
+                    <a class="page-link" href="/tags/">Tags</a>
+                
+                    <a class="page-link" href="/archives/">Archives</a>
+                
+            </div>
+            
+        </nav></div>
+</header><div id="sidebar">
+
+</div>
+
+    <main class="page-content" aria-label="Content">
+        <div class="wrapper">
+            <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <!-- 우측애 toc 추가 -->
+    
+    
+    <!--
+    The Pannel on right side (Desktop views)
+-->
+
+<div id="panel-wrapper" class="col-xl-3 pl-2 text-muted topbar-down">
+
+    <div class="access">
+    
+    <!-- BS-toc.js will be loaded at medium priority -->
+    <script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.js"></script>
+    <div id="toc-wrapper" class="pl-0 pr-4 mb-5">
+        <span class="pl-3 pt-2 mb-2">Contents</span>
+        <nav id="toc" data-toggle="toc"></nav>
+    </div>
+    
+
+</div> <!-- #panel-wrapper -->
+
+
+    
+    <header class="post-header">
+        <h1 class="post-title p-name" itemprop="name headline">[Go] MySQL 사용하기</h1>
+        <p class="post-meta"><time class="dt-published" datetime="2021-03-08T20:23:00+00:00" itemprop="datePublished">
+                2021.03.08
+            </time>• 
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                <span class="p-author h-card" itemprop="name">임가람</span></span></p>
+    </header>
+
+    <div class="post-content e-content" itemprop="articleBody">
+        <h3 id="intro">Intro</h3>
+
+<p>프로그램을 만들기 위해서는 대부분 데이터베이스에서 값을 가져와서 사용합니다.<br />
+이번엔 많이 사용하는 데이터베이스인 MySQL과 연결해서 데이터를 가져온 후 그 결과를 JSON으로 출력하는 방법에 대해서 알아보겠습니다.</p>
+
+<h3 id="패키지-설치">패키지 설치</h3>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">go get github.com/go-sql-driver/mysql
+</span></code></pre></div></div>
+
+<h3 id="코드-작성">코드 작성</h3>
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
+
+<span class="k">import</span> <span class="p">(</span>
+	<span class="s">"fmt"</span>
+	<span class="s">"database/sql"</span> <span class="c">// mysql</span>
+    <span class="n">_</span> <span class="s">"github.com/go-sql-driver/mysql"</span> <span class="c">// mysql</span>
+	<span class="s">"log"</span>
+	<span class="s">"encoding/json"</span> <span class="c">// json	</span>
+<span class="p">)</span>
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+
+	<span class="c">// DB 객체 생성</span>
+	<span class="n">db</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">sql</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s">"mysql"</span><span class="p">,</span> <span class="s">"아이디:비밀번호@@tcp(IP:PORT)/DB명"</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+		<span class="n">log</span><span class="o">.</span><span class="n">Fatal</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+	<span class="p">}</span>
+	
+	<span class="c">// SQL 쿼리 작성</span>
+	<span class="n">rows</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">db</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span><span class="s">"SELECT user_id, user_pwd, user_name FROM user_info"</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+		<span class="n">log</span><span class="o">.</span><span class="n">Fatal</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="k">defer</span> <span class="n">rows</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span> <span class="c">// defer: return 하기 직전에 실행</span>
+
+	<span class="c">// 쿼리 실행 결과 JSON 형태로 변환</span>
+	<span class="n">columns</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">rows</span><span class="o">.</span><span class="n">Columns</span><span class="p">()</span>
+	<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+		<span class="n">log</span><span class="o">.</span><span class="n">Fatal</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="n">count</span> <span class="o">:=</span> <span class="nb">len</span><span class="p">(</span><span class="n">columns</span><span class="p">)</span>
+	<span class="n">tableData</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{},</span> <span class="m">0</span><span class="p">)</span>
+	<span class="n">values</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="k">interface</span><span class="p">{},</span> <span class="n">count</span><span class="p">)</span>
+	<span class="n">valuePtrs</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="k">interface</span><span class="p">{},</span> <span class="n">count</span><span class="p">)</span>
+	<span class="k">for</span> <span class="n">rows</span><span class="o">.</span><span class="n">Next</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">for</span> <span class="n">i</span> <span class="o">:=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">count</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">{</span>
+		<span class="n">valuePtrs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+		<span class="p">}</span>
+		<span class="n">rows</span><span class="o">.</span><span class="n">Scan</span><span class="p">(</span><span class="n">valuePtrs</span><span class="o">...</span><span class="p">)</span>
+		<span class="n">entry</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{})</span>
+		<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">col</span> <span class="o">:=</span> <span class="k">range</span> <span class="n">columns</span> <span class="p">{</span>
+			<span class="k">var</span> <span class="n">v</span> <span class="k">interface</span><span class="p">{}</span>
+			<span class="n">val</span> <span class="o">:=</span> <span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+			<span class="n">b</span><span class="p">,</span> <span class="n">ok</span> <span class="o">:=</span> <span class="n">val</span><span class="o">.</span><span class="p">([]</span><span class="kt">byte</span><span class="p">)</span>
+			<span class="k">if</span> <span class="n">ok</span> <span class="p">{</span>
+				<span class="n">v</span> <span class="o">=</span> <span class="kt">string</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+			<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+				<span class="n">v</span> <span class="o">=</span> <span class="n">val</span>
+			<span class="p">}</span>
+			<span class="n">entry</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+		<span class="p">}</span>
+		<span class="n">tableData</span> <span class="o">=</span> <span class="nb">append</span><span class="p">(</span><span class="n">tableData</span><span class="p">,</span> <span class="n">entry</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="n">jsonString</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">json</span><span class="o">.</span><span class="n">Marshal</span><span class="p">(</span><span class="n">tableData</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+		<span class="n">log</span><span class="o">.</span><span class="n">Fatal</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="kt">string</span><span class="p">(</span><span class="n">jsonString</span><span class="p">))</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p># 참고<br />
+<a href="http://golang.site/go/article/107-MySql-%EC%82%AC%EC%9A%A9---%EC%BF%BC%EB%A6%AC" target="_blank">MySQL 연동: 예제로 배우는 Go 프로그래밍</a><br />
+<a href="https://stackoverflow.com/questions/19991541/dumping-mysql-tables-to-json-with-golang" target="_blank">JSON 만들기: Stack Overflow</a></p>
+
+    </div><div style="padding-top: 3rem;"><div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = '/go/2021/03/08/go-mysql.html';
+        this.page.identifier = '/go/2021/03/08/go-mysql.html';
+    };
+
+    (function () {
+        var d = document, s = d.createElement('script');
+
+        s.src = 'https://garamm.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments
+        powered by Disqus.</a></noscript></div><a class="u-url" href="/go/2021/03/08/go-mysql.html" hidden></a>
+</article>
+        </div>
+    </main><footer class="site-footer h-card">
+    <data class="u-url" href="/%20/"></data>
+
+    <div class="wrapper">
+
+        <div class="footer-col-wrapper">
+            <div class="footer-col">
+                <p class="feed-subscribe">
+                    <a href="/feed.xml">
+                        <svg class="svg-icon orange">
+                            <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+                        </svg><span>Subscribe</span>
+                    </a>
+                </p>
+                <ul class="contact-list">
+                    <li class="p-name">garam</li>
+                    <li><a class="u-email" href="mailto:garam1362@naver.com">garam1362@naver.com</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <p>매일의 기록
+</p>
+            </div>
+        </div>
+
+        <div class="social-links"><ul class="social-media-list"><li><a rel="me"  target="_blank" href="https://github.com/garamm" title="garamm"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+    </div>
+
+</footer></body>
+
+</html>
