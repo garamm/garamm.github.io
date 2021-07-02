@@ -1,5 +1,5 @@
 {% comment %}
-Get the last 5 posts from lastmod list.
+  Get the last 5 posts from lastmod list.
 {% endcomment %}
 
 {% assign MAX_SIZE = 5 %}
@@ -7,12 +7,12 @@ Get the last 5 posts from lastmod list.
 {% assign all_list = "" | split: "" %}
 
 {% for post in site.posts %}
-{% if post.last_modified_at %}
-{% capture elem %}
-{{- post.last_modified_at | date: "%Y%m%d%H%M%S" -}}::{{- forloop.index0 -}}
-{% endcapture %}
-{% assign all_list = all_list | push: elem %}
-{% endif %}
+  {% if post.last_modified_at %}
+    {% capture elem %}
+      {{- post.last_modified_at | date: "%Y%m%d%H%M%S" -}}::{{- forloop.index0 -}}
+    {% endcapture %}
+    {% assign all_list = all_list | push: elem %}
+  {% endif %}
 {% endfor %}
 
 {% assign all_list = all_list | sort | reverse %}
@@ -20,5 +20,5 @@ Get the last 5 posts from lastmod list.
 {% assign update_list = "" | split: "" %}
 
 {% for entry in all_list limit:MAX_SIZE %}
-{% assign update_list = update_list | push: entry %}
+  {% assign update_list = update_list | push: entry %}
 {% endfor %}
