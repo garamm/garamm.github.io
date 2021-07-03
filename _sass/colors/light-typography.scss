@@ -26,10 +26,11 @@
   --checkbox-checked-color: #07a8f7;
 
   /* Sidebar */
-  --sidebar-bg: radial-gradient(
-    circle,
-    rgba(42, 30, 107, 1) 0%,
-    rgba(35, 37, 46, 1) 100%);
+//   --sidebar-bg: radial-gradient(
+//     circle,
+//     rgba(42, 30, 107, 1) 0%,
+//     rgba(35, 37, 46, 1) 100%);
+  --sidebar-bg: linear-gradient(-225deg, #7085B6 0%, #87A7D9 50%, #DEF3F8 100%);
   --nav-cursor-color: #fcfcfc;
 
   /* Topbar */
