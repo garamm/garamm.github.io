@@ -22,6 +22,16 @@ print(arr) # [0, 0, 0, 0, 0]
 
 <br>
 
+### 리스트의 빈 값 없애기
+
+```python
+arr = ['a', '', '', 'b', '', 'c']
+arr = list(filter(None, arr))
+print(arr) # ['a', 'b', 'c']
+```
+
+<br>
+
 ### 값 찾기
 enumerate()<br>
 for문과 자주 쓰이는 함수, for문에서 이 값이 몇 번째 값인지 확인하고 싶을 때 사용
@@ -34,7 +44,7 @@ for idx, child in enumerate(children):
 <br>
 
 ### 리스트에서 값의 개수 세기
-Counter(리스트) : 리스트에서 x의 개수별로 정리
+Counter(리스트) : 리스트에서 x의 개수별로 정리<br>
 dict(Counter(리스트)) : 리스트에서 원소의 개수를 key-value로 정리
 ```python
 from collections import Counter
@@ -47,7 +57,7 @@ print(dict(counter)) # {'A': 2, 'B': 2, 'C': 1}
 <br>
 
 ### 숫자 관련 함수
-sum() : 값 더하기
+sum() : 값 더하기<br>
 min(), max() : 최소, 최대값 찾기
 ```python
 print(sum([1, 2, 3])) # 6
@@ -62,12 +72,13 @@ print(eval("(1*2)+3")) # 5
 <br>
 
 ### 형변환
-str()<br>
-문자열 형태로 객체를 반환
+str() : 문자열 형태로 객체를 반환
+join() : 리스트를 문자열로 반환
 ```python
 print(str(123456)) # '123456'
+print("".join(["a", "b", "c"])) # abc
+print(".".join(["a", "b", "c"])) # a.b.c
 ```
-
 <br>
 
 ### 아스키 코드
@@ -81,8 +92,8 @@ print(chr(65)) # 'A'
 <br>
 
 ### 정렬
-sorted(리스트) : 오름차순 정렬
-sorted(리스트, reverse=True) : 내림차순 정렬
+sorted(리스트) : 오름차순 정렬<br>
+sorted(리스트, reverse=True) : 내림차순 정렬<br>
 sorted(리스트, key=lambda x:x[n]) : n번째 키를 기준으로 오름차순 정렬
 ```python
 print(sorted([1, 5, 3, 7, 9])) # [1, 3, 5, 7, 9]
@@ -96,10 +107,10 @@ print(sorted(arr, key=lambda x:x[1]))
 <br>
 
 ### 순열, 조합
-list(permutations(리스트, n)) : 리스트에서 n개를 선택
-list(combinations(리스트, n)) : 리스트에서 순서에 상관 없이 n개 선택
-list(product(리스트, repeat=n)) : 리스트에서 n개를 뽑는 모든 순열 (중복 허용)
-list(combinations_with_replacement(리스트, n)) : 리스트에서 n개를 뽑는 모든 조합 (중복 허용)
+list(permutations(리스트, n)) : 리스트에서 n개를 선택<br>
+list(combinations(리스트, n)) : 리스트에서 순서에 상관 없이 n개 선택<br>
+list(product(리스트, repeat=n)) : 리스트에서 n개를 뽑는 모든 순열 (중복 허용)<br>
+list(combinations_with_replacement(리스트, n)) : 리스트에서 n개를 뽑는 모든 조합 (중복 허용)<br>
 list(product(*리스트)) : 2차원 이상의 리스트에서 모든 조합
 ```python
 from itertools import permutations
@@ -125,13 +136,24 @@ print(list(product(*arr2)))
 <br>
 
 ### 최대공약수, 최소공배수
-gcd(x, y) : x와 y의 최대 공약수
+gcd(x, y) : x와 y의 최대 공약수<br>
 x * y // math.gcd(x, y) : x와 y의 최소 공배수
 ```python
 import math
 a, b = 6, 15
 print(math.gcd(a, b)) # 3
 print(a * b // math.gcd(a, b)) # 30
+```
+
+<br>
+
+### 숫자인지 문자인지 알아내기
+isdigit() : 숫자인지 확인 (단 소수점이 있는 경우 False로 판별)<br>
+isalpha() : 문자열이 문자로만 구성되어있는지 확인 (단, 공백이나 숫자는 False로 판별)<br>
+```python
+print("123".isdigit()) # True
+print("123.5".isdigit()) # False
+print("asd".isalpha()) # True
 ```
 
 <br>
