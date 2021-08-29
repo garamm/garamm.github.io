@@ -13,301 +13,232 @@ tags: [뇌를 자극하는 알고리즘]
 <br>
 
 ---
-<br>
-
 ## 큐의 주요 기능: 삽입과 제거
 큐의 가장 앞 요소를 전단(Front)이라고 하고, 마지막 요소를 후단(Rear)이라고 한다.<br>
 큐에서 삽입(Enqueue)은 후단에 노드를 덧붙혀 새로운 후단을 만드는 연산이다.<br>
 큐에서 제거(Dequeue)는 전단의 노드를 없애서 전단 뒤에 있는 노드를 새로운 전단으로 만드는 연산이다.
-![큐-삽입과제거](/assets/img/posts/2021-08-17-queue-circular-1.png){: width="600" height="150" }
+![큐-삽입과제거](/assets/img/posts/2021-08-17-queue-circular-1.png){: width="700" height="150" }
 
 <br>
 
 ---
-<br>
-
 ## 순환 큐
+큐를 배열로 구현한다면, 용량이 100인 경우 전단을 제거할 때 99번의 자리 이동이 필요하다.<br>
+![큐-순환큐1](/assets/img/posts/2021-08-17-queue-circular-2.png){: width="600" height="150" }<br>
+그러므로 전단을 가리키는 변수를 도입해서 배열 내의 요소를 옮기지 않고 변경된 전단위 위치만 관리하게 하고, 후단을 가리키는 변수를 도입해서 삽입이 일어날 때마다 변경되는 후단의 위치를 관리한다.<br>
+![큐-순환큐2](/assets/img/posts/2021-08-17-queue-circular-3.png){: width="600" height="150" }<br>
+그런데 이렇게 하면 제거 연산을 수행 할수록 용량도 줄어들게된다. 그러므로 아래와 같이 시작과 끝을 연결해서 순환하도록 고안한 큐를 ‘순환 큐(Circular Queue)’라고 한다.<br>
+![큐-순환큐3](/assets/img/posts/2021-08-17-queue-circular-4.png){: width="600" height="150" }<br>
+![큐-순환큐4](/assets/img/posts/2021-08-17-queue-circular-5.png){: width="600" height="150" }
+<br>
 
-
-
+### 비어 있거나 또는 가득 차 있거나
+순환 큐는 비어 있는 상태와 가득 찬 상태를 구분할 수 없다.<br>
+![큐-순환큐5](/assets/img/posts/2021-08-17-queue-circular-6.png){: width="600" height="150" }<br>
+순환 큐의 후단은 실제의 후단에 1을 더한 값을 가진다. 그러므로 큐 배열을 생성할 때 실제 용량보다 1 크게 만들어서 전단과 후단(실제의 후단) 사이를 비운다. 그러면 큐가 비었을 때 전단과 후단이 같은 곳을 가르키고, 큐가 가득 차있을 때는 후단이 전단보다 1 작은 값을 갖게 된다.<br>
+![큐-순환큐5](/assets/img/posts/2021-08-17-queue-circular-7.png){: width="600" height="150" }
 <br>
 
 ---
+## 순환 큐 구현하기
+### 순환 큐의 선언
+Nodes 포인터가 가리키는 배열은 자유 저장소에 생성된다.<br>
+순환 큐는 공백/포화 상태를 구분하기 위한 더미 노드(Dummy Node)를 한 개 더 가지고 있기 때문에 Capacity의 값은 실제 용량보다 하나 작다.<br>
+Front는 전단의 위치, Rear는 후단의 위치를 가리킨다. 이 값들은 실제 메모리 주소는 아니고 배열 내의 인덱스이다. Rear는 실제의 후단보다 1 더 큰 값을 갖는다.<br>
+![큐-구조체](/assets/img/posts/2021-08-17-queue-circular-8.png){: width="600" height="150" }
 <br>
 
-## 예제 코드
+### 순환 큐의 생성과 소멸
+생성: 먼저 순환 큐를 자유 저장소에 생성하고, ‘Node의 크기 x (Capacity + 1)’의 크기로 배열을 자유 저장소에 할당한다.<br>
+소멸: 배열을 자유 저장소에서 제거한 후, 순환 큐 구조체를 제거한다.
+<br>
 
-Calculator.h
+### 삽입(Enqueue) 연산
+후단(Rear)의 값이 용량+1과 같은 값을 갖고 있으면 후단이 배열 끝에 도달했다는 의미이므로 Rear와 Position을 0으로 지정한다.<br>
+그렇지 않으면 Rear의 위치를 Position에 저장하고, Rear를 1 증가시킨다.<br>
+if ~ else 작업이 끝난 후 Nodes 배열에서 Position이 가리키는 곳에 데이터를 저장한다.
+![큐-삽입](/assets/img/posts/2021-08-17-queue-circular-9.png){: width="600" height="150" }
+<br>
+
+### 제거(Dequeue) 연산
+전단(Front)의 위치를 Position에 저장하고, 함수 종료시 전단의 데이터를 반환할 때 배열의 인덱스로 사용한다.<br>
+if ~ else 블록에서는 Front의 값이 Capacity와 같을 때 Front를 0으로 초기화하고, 그렇지 않으면 Front의 값을 1 증가시킨다.(Front == Capacity이면 전단이 배열의 끝에 도달했다는 의미)<br>
+![큐-제거](/assets/img/posts/2021-08-17-queue-circular-10.png){: width="600" height="150" }
+<br>
+
+### 공백 상태 확인
+전단과 후단의 값이 같으면 공백 상태라고 판정한다.
+<br>
+
+### 포화 상태 확인
+(1) 순환 큐 배열 내에서 전단이 후단 앞에 위치하는 경우<br>
+후단과 전단의 차가 큐의 용량과 동일한지 확인<br>
+(2) 전단히 후단 뒤에 위치하는 경우<br>
+Rear에 1을 더한 값이 Front와 같은지 확인
+<br>
+
+---
+## 소스코드
+CircularQueue.h
 ```c
-#ifndef CALCULATOR_H
-#define CALCULATOR_H
+#ifndef CIRCULAR_QUEUE_H
+#define CIRCULAR_QUEUE_H
 
-#include <stdlib.h>
-#include "LinkedListStack.h"
-
-typedef enum
-{
-    LEFT_PARENTHESIS  = '(', RIGHT_PARENTHESIS = ')',
-    PLUS     = '+', MINUS    = '-',
-    MULTIPLY = '*', DIVIDE   = '/',
-    SPACE    = ' ', OPERAND
-} SYMBOL;
-
-int          IsNumber( char Cipher );
-unsigned int GetNextToken( char* Expression, char* Token, int* TYPE );
-int          IsPrior( char Operator1, char Operator2 );
-void         GetPostfix( char* InfixExpression, char* PostfixExpression );
-double       Calculate( char* PostfixExpression );
-
-#endif CALCULATOR_H
-```
-Calculator.c
-```c
-#include "Calculator.h"
-
-char NUMBER[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.' };
-
-int IsNumber( char Cipher )
-{
-    int i = 0;
-    int ArrayLength = sizeof(NUMBER);
-
-    for ( i=0; i<ArrayLength; i++ )
-    {
-        if ( Cipher == NUMBER[i] )
-            return 1;
-    }
-
-    return 0;
-}
-
-unsigned int GetNextToken( char* Expression, char* Token, int* TYPE )
-{
-    unsigned int i = 0;
-    
-    for ( i=0 ; 0 != Expression[i]; i++ )
-    {
-        Token[i] = Expression[i];
-
-        if ( IsNumber( Expression[i] ) == 1 )
-        {            
-            *TYPE = OPERAND;
-
-            if ( IsNumber(Expression[i+1]) != 1 )
-                break;
-        }
-        else
-        {
-            *TYPE = Expression[i];
-            break;            
-        }
-    }
-
-    Token[++i] = '\0';
-    return i;
-}
-
-int GetPriority(char Operator, int InStack)
-{
-    int Priority = -1;
-
-    switch (Operator)
-    {
-    case LEFT_PARENTHESIS:
-        if ( InStack )
-            Priority = 3;
-        else
-            Priority = 0;
-        break;
-
-    case MULTIPLY:
-    case DIVIDE:
-        Priority = 1;
-        break;
-
-    case PLUS:
-    case MINUS:
-        Priority = 2;
-        break;
-    }
-
-    return Priority;
-}
-
-int IsPrior( char OperatorInStack, char OperatorInToken )
-{
-    return ( GetPriority(OperatorInStack, 1) > GetPriority(OperatorInToken, 0) );
-}
-/* 중위 표기법에서 후위 표기법으로 변환 */
-void GetPostfix( char* InfixExpression, char* PostfixExpression )
-{ /* InfixExpression; 중위 표기식, PostfixExpression; 후위 표기식 */
-    LinkedListStack* Stack;
-
-    char Token[32];
-    int  Type = -1;
-    unsigned int Position = 0;
-    unsigned int Length = strlen( InfixExpression );
-
-    LLS_CreateStack(&Stack);
-
-    while ( Position < Length ) /* 중위 표기식을 다 읽을 때까지 */
-    {
-        Position += GetNextToken( &InfixExpression[Position], Token, &Type );
-
-        if ( Type == OPERAND ) /* 토큰이 피연산자라면 후위 표기식에 출력 */
-        {
-            strcat( PostfixExpression, Token );
-            strcat( PostfixExpression, " " );
-        }
-        else if ( Type == RIGHT_PARENTHESIS ) /* 토큰이 오른쪽 괄호라면 왼쪽 괄호가 나타날 때까지 스택의 노드를 제거 */
-        {               
-            while ( !LLS_IsEmpty(Stack) ) 
-            {
-                Node* Popped = LLS_Pop( Stack );
-
-                if ( Popped->Data[0] == LEFT_PARENTHESIS )
-                {
-                    LLS_DestroyNode( Popped );
-                    break;
-                }
-                else /* 토큰이 연산자인 경우 */
-                {
-                    strcat( PostfixExpression, Popped->Data );          
-                    LLS_DestroyNode( Popped );
-                }
-            }
-        }
-        else
-        {
-            while ( !LLS_IsEmpty( Stack ) && 
-                    !IsPrior( LLS_Top( Stack )->Data[0], Token[0] ) )
-            {
-                Node* Popped = LLS_Pop( Stack );
-
-                if ( Popped->Data[0] != LEFT_PARENTHESIS )
-                    strcat( PostfixExpression, Popped->Data );
-                
-                LLS_DestroyNode( Popped );
-            }
-            
-            LLS_Push( Stack, LLS_CreateNode( Token ) );
-        }
-    }
-
-    while ( !LLS_IsEmpty( Stack) ) /* 중위 표기식을 다 읽었으니 Stack에 남아있는 모든 연산자를 후위 표기식에 출력  */
-    {
-        Node* Popped = LLS_Pop( Stack );
-
-        if ( Popped->Data[0] != LEFT_PARENTHESIS )
-            strcat( PostfixExpression, Popped->Data );
-        
-        LLS_DestroyNode( Popped );
-    }
-
-    LLS_DestroyStack(Stack);
-}
-/* 후위 표기식을 계산하는 함수 */
-double Calculate( char* PostfixExpression )
-{
-    LinkedListStack* Stack;
-    Node*  ResultNode;
-
-    double Result;
-    char Token[32];
-    int  Type = -1;
-    unsigned int Read = 0; 
-    unsigned int Length = strlen( PostfixExpression );
-
-    /* Stack 생성 */
-    LLS_CreateStack(&Stack); 
-
-    while ( Read < Length ) /* PostfixExpression을 다 읽을 때 까지 */
-    {
-       /* PostfixExpression에서 토큰을 읽고, 읽은 토큰 크기를 Read에 누적 */
-        Read += GetNextToken( &PostfixExpression[Read], Token, &Type );
-
-        if ( Type == SPACE )  
-            continue;
-        
-        if ( Type == OPERAND ) /* 토큰이 피연산자면 스택에 삽입 */
-        {
-            Node* NewNode = LLS_CreateNode( Token );
-            LLS_Push( Stack, NewNode );
-        }
-        else /* 토큰이 연산자면 스택에서 피연산자 2개를 꺼내서 연산자로 계산 후 스택에 저장 */
-        {
-            char   ResultString[32];            
-            double Operator1, Operator2, TempResult;
-            Node* OperatorNode;
-
-            OperatorNode = LLS_Pop( Stack );
-            Operator2 = atof( OperatorNode->Data );
-            LLS_DestroyNode( OperatorNode );
-
-            OperatorNode = LLS_Pop( Stack );
-            Operator1 = atof( OperatorNode->Data );
-            LLS_DestroyNode( OperatorNode );
-            
-            switch (Type) /* 연산자 종류에 따라 계산 */
-            {
-            case PLUS:     TempResult = Operator1 + Operator2; break;
-            case MINUS:    TempResult = Operator1 - Operator2; break;
-            case MULTIPLY: TempResult = Operator1 * Operator2; break;
-            case DIVIDE:   TempResult = Operator1 / Operator2; break;
-            }
-
-            gcvt( TempResult, 10, ResultString ); /* 소수로 되어 있는 계산 결과를 문자열로 변환 */
-            LLS_Push( Stack, LLS_CreateNode( ResultString ) );
-        }
-    }
-
-    ResultNode = LLS_Pop( Stack ); /* 스택에 마지막으로 남아있는 값을 Result에 저장 */
-    Result = atof( ResultNode->Data ); /* 문자열로 되어 있는 계산 결과를 소수로 변환 */
-    LLS_DestroyNode( ResultNode );
-
-    LLS_DestroyStack( Stack );
-
-    return Result;
-}
-```
-Test_Calculator.c
-```c
 #include <stdio.h>
-#include <string.h>
-#include "Calculator.h"
+#include <stdlib.h>
+
+typedef int ElementType;
+
+typedef struct tagNode
+{
+	ElementType Data;
+} Node;
+
+typedef struct tagCircularQueue
+{
+	int Capacity; /* 용량 */
+	int Front; /* 전단의 인덱스 */
+	int Rear; /* 후단의 인덱스 */
+	Node* Nodes; /* 노드 배열 */
+} CircularQueue;
+
+void CQ_CreateQueue( CircularQueue** Queue, int Capacity);
+void CQ_DestroyQueue( CircularQueue* Queue );
+void CQ_Enqueue( CircularQueue* Queue, ElementType Data);
+ElementType CQ_Dequeue( CircularQueue* Queue );
+int CQ_GetSize( CircularQueue* Queue );
+int CQ_IsEmpty( CircularQueue* Queue );
+int CQ_IsFull( CircularQueue* Queue );
+
+#endif
+```
+CircularQueue.c
+```c
+#include "CircularQueue.h"
+
+void CQ_CreateQueue( CircularQueue** Queue, int Capacity)
+{
+	/* 큐를 자유저장소에 생성 */
+	(*Queue ) = ( CircularQueue*)malloc(sizeof( CircularQueue ));
+
+	/* 입력된 Capacity+1 만큼의 노드를 자유저장소에 생성 */
+	(*Queue )->Nodes = (Node*)malloc(sizeof(Node )* ( Capacity+1) );
+
+	(*Queue )->Capacity = Capacity; /* 큐가 수용할 실제 용량을 저장 */
+	(*Queue )->Front = 0;
+	(*Queue )->Rear = 0;
+}
+
+void CQ_DestroyQueue( CircularQueue* Queue )
+{
+	free(Queue->Nodes);
+	free(Queue );
+}
+
+void CQ_Enqueue( CircularQueue* Queue, ElementType Data)
+{
+	int Position=0;
+	if(Queue->Rear==Queue->Capacity)
+	{
+		Position=Queue->Rear;
+		Queue->Rear=0;
+	}
+	else
+		Position=Queue->Rear++;
+		
+	Queue->Nodes[Position].Data=Data;
+}
+
+ElementType CQ_Dequeue( CircularQueue* Queue )
+{
+	int Position = Queue->Front;
+
+	if ( Queue->Front == Queue->Capacity )
+		Queue->Front = 0;
+	else
+		Queue->Front++;
+
+	return Queue->Nodes[Position].Data;
+}
+
+int CQ_GetSize( CircularQueue* Queue )
+{
+	if ( Queue->Front <= Queue->Rear )
+		return Queue->Rear - Queue->Front;
+	else
+		return Queue->Rear + (Queue->Capacity - Queue->Front) + 1;
+}
+
+int CQ_IsEmpty( CircularQueue* Queue )
+{
+	return (Queue->Front == Queue->Rear);
+}
+
+int CQ_IsFull( CircularQueue* Queue )
+{
+	if ( Queue->Front < Queue->Rear )
+		return ( Queue->Rear - Queue->Front) == Queue->Capacity;
+	else
+		return ( Queue->Rear + 1 ) == Queue->Front;
+}
+```
+Test_CircularQueue.c
+```c
+#include "CircularQueue.h"
 
 int main( void )
 {
-    char InfixExpression[100];
-    char PostfixExpression[100];
+	int i;
+	CircularQueue* Queue;
 
-	double Result = 0.0;
+	CQ_CreateQueue(&Queue, 10);
+	CQ_Enqueue( Queue, 1 );
+	CQ_Enqueue( Queue, 2 );
+	CQ_Enqueue( Queue, 3 );
+	CQ_Enqueue( Queue, 4 );
 
-    memset( InfixExpression,   0, sizeof(InfixExpression) );
-    memset( PostfixExpression, 0, sizeof(PostfixExpression) );
-    
-    printf( "Enter Infix Expression:" );
-    scanf( "%s", InfixExpression );
-    
-    GetPostfix( InfixExpression, PostfixExpression );
-    
-    printf( "Infix:%s\nPostfix:%s\n",
-            InfixExpression,
-            PostfixExpression );
+	for ( i=0; i<3; i++)
+	{
+		printf( "Dequeue: %d, ", CQ_Dequeue( Queue ) );
+		printf( "Front:%d, Rear:%d\n", Queue->Front, Queue->Rear );
+	}
+	i = 100;
+	while ( CQ_IsFull( Queue ) == 0 )
+	{
+		CQ_Enqueue( Queue, i++ );
+	}
 
-	Result = Calculate( PostfixExpression );
+	printf( "Capacity: %d, Size: %d\n\n",
+	Queue->Capacity, CQ_GetSize(Queue ) );
 
-    printf( "Calculation Result : %f\n", Result );
+	while ( CQ_IsEmpty( Queue ) == 0)
+	{
+		printf( "Dequeue: %d, ", CQ_Dequeue( Queue ) );
+		printf( "Front:%d, Rear:%d\n", Queue->Front, Queue->Rear );
+	}
 
-    return 0;
+	CQ_DestroyQueue( Queue );
+
+	return 0;
 }
 ```
-실행 결과
+실행결과
 ```
-Enter Infix Expression:1+3.334/(4.28*(110-7729))
-Infix:1+3.334/(4.28*(110-7729))
-Postfix:1 3.334 4.28 110 7729 -*/+
-Calculation Result : 0.999898
+Dequeue: 1, Front: 1, Rear: 4
+Dequeue: 2, Front: 2, Rear: 4
+Dequeue: 3, Front: 3, Rear: 4
+Capacity: 10, Size: 10
+
+Dequeue: 1, Front: 4, Rear: 4
+Dequeue: 100, Front: 5, Rear: 2
+Dequeue: 101, Front: 6, Rear: 2
+Dequeue: 102, Front: 7, Rear: 2
+Dequeue: 103, Front: 8, Rear: 2
+Dequeue: 104, Front: 9, Rear: 2
+Dequeue: 105, Front: 10, Rear: 2
+Dequeue: 106, Front: 0, Rear: 2
+Dequeue: 107, Front: 1, Rear: 2
+Dequeue: 108, Front: 2, Rear: 2
 ```
 
 <br>

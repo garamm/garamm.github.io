@@ -8,10 +8,10 @@ tags: [뇌를 자극하는 알고리즘]
 ---
 
 ## 스택과 스택의 노드 표현하기
-![스택-링스크리스트-구조](/assets/img/posts/2021-08-14-stack-linkedlist-1.png){: width="600" height="150" }
+![스택-링스크리스트-구조](/assets/img/posts/2021-08-14-stack-linkedlist-1.png){: width="600" height="300" }<br>
 배열 기반의 스택과는 다르게 스택의 용량, 최상위 노드의 인덱스가 없고, 리스트의 헤드와 테일에 대한 포인터가 있다.<br>
-Top 포인터는 링크드 리스트의 테일을 가리킨다.
-![스택-링스크리스트-구조2](/assets/img/posts/2021-08-14-stack-linkedlist-2.png){: width="600" height="150" }
+Top 포인터는 링크드 리스트의 테일을 가리킨다.<br>
+![스택-링스크리스트-구조2](/assets/img/posts/2021-08-14-stack-linkedlist-2.png){: width="700" height="300" }
 
 <br>
 

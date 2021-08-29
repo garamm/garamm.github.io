@@ -18,11 +18,11 @@ tags: [뇌를 자극하는 알고리즘]
 - 연산자가 나타난 경우 피연산자 2개를 스택에서 꺼낸 후 연산을 실행하고, 연산 결과를 다시 스택에 삽입한다.
 <br>
 예시: 1 3 2 * -<br>
-- 요소 1은 피연산자 이므로 스택에 담는다.<br>![스택-계산기-1](/assets/img/posts/2021-08-15-stack-calculator-1.png){: width="600" height="150" }
-- 요소 3은 피연산자 이므로 스택에 담는다.<br>![스택-계산기-2](/assets/img/posts/2021-08-15-stack-calculator-2.png){: width="600" height="150" }
-- 요소 2은 피연산자 이므로 스택에 담는다.<br>![스택-계산기-3](/assets/img/posts/2021-08-15-stack-calculator-3.png){: width="600" height="150" }
-- 요소 *은 연산자 이므로 스택에서 요소 2, 3을 꺼내 연산을 해준 후 다시 스택에 삽입한다.<br>![스택-계산기-4](/assets/img/posts/2021-08-15-stack-calculator-4.png){: width="600" height="150" }
-- 요소 -은 연산자 이므로 스택에서 요소 6, 1을 꺼내 연산을 해준 후 다시 스택에 삽입한다.<br>![스택-계산기-5](/assets/img/posts/2021-08-15-stack-calculator-5.png){: width="600" height="150" }
+- 요소 1은 피연산자 이므로 스택에 담는다.<br>![스택-계산기-1](/assets/img/posts/2021-08-15-stack-calculator-1.png){: width="300" height="150" }
+- 요소 3은 피연산자 이므로 스택에 담는다.<br>![스택-계산기-2](/assets/img/posts/2021-08-15-stack-calculator-2.png){: width="300" height="150" }
+- 요소 2은 피연산자 이므로 스택에 담는다.<br>![스택-계산기-3](/assets/img/posts/2021-08-15-stack-calculator-3.png){: width="300" height="150" }
+- 요소 *은 연산자 이므로 스택에서 요소 2, 3을 꺼내 연산을 해준 후 다시 스택에 삽입한다.<br>![스택-계산기-4](/assets/img/posts/2021-08-15-stack-calculator-4.png){: width="300" height="150" }
+- 요소 -은 연산자 이므로 스택에서 요소 6, 1을 꺼내 연산을 해준 후 다시 스택에 삽입한다.<br>![스택-계산기-5](/assets/img/posts/2021-08-15-stack-calculator-5.png){: width="300" height="150" }
 - 식을 모두 읽었기 때문에 스택에 있는 결과 값을 꺼내준다.
 <br>
 순서도<br>
@@ -35,13 +35,14 @@ tags: [뇌를 자극하는 알고리즘]
 - 토큰이 피연산자이면 토큰을 결과에 출력한다.
 - 토큰이 연산자(괄호 포함)이면 스택의 최상위 노드에 담겨있는 연산자가 토큰보다 우선 순위가 높은지 검사한다.<br>검사 결과가 참이면 최상위 노드를 스택에서 꺼내 결과에 출력하며, 이 검사 작업을 반복해서 수행하되 그 결과가 거짓이거나 스택이 비게 되면 작업을 중단한다.<br>검사 작업이 끝난 후에는 토큰을 스택에 삽입한다. (스택에는 최상위 노드보다 우선순위가 높은 연산자는 존재하지 않는다.)
 - 토큰이 오른쪽 괄호 ')' 이면 최상위 노드에 왼쪽 괄호 '('가 올 때까지 스택에 제거 연산을 수행하고, 제거한 노드에 담긴 연산자를 출력한다.<br>왼쪽 괄호를 만나면 제거만 하고 출력하지는 않는다.
-- 중위 표기식에 더 읽을 것이 없다면 빠져나가고, 더 읽을 것이 있다면 처음부터 다시 반복한다.
+- 중위 표기식에 더 읽을 것이 없다면 빠져나가고, 더 읽을 것이 있다면 처음부터 다시 반복한다.<br>
+<br>
+[예제] (117.32 + 83) * 49를 후위 표기식으로 변환하는 과정<br>
 ![스택-계산기-후위표기법변환표](/assets/img/posts/2021-08-15-stack-calculator-7.png){: width="600" height="150" }
 
 <br>
 
 ---
-<br>
 
 ## 예제 코드
 [LinkedListStack.h, LinkedListStack.c 소스코드](https://garamm.github.io/posts/stack-linkedlist){:target="_blank"}<br>
