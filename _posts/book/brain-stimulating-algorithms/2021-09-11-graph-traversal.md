@@ -16,12 +16,12 @@ tags: [뇌를 자극하는 알고리즘]
 ---
 ## 깊이 우선 탐색(Depth First Search)
 길이 나오지 않을 때까지 그래프의 정점을 타고 깊이 들어가다가 더 이상 방문해왔던 정점 말고는 다른 이웃을 갖고 있지 않은 정점을 만나면 뒤로 돌아와 다른 경로로 뻗어 있는 정점을 타고 방문을 재개하는 방식으로 동작
-- (1) 시작 정점을 밟은 후 이 정점을 '방문했음'으로 표시한다.
-- (2) 이 정점과 이웃하고 있는 정점(인접 정점) 중에 아직 방문하지 않은 곳을 선택하여 이를 시작 정점으로 삼아 다시 1번 단계를 수행한다.
-- 정점에 더 이상 방문하지 않은 인접 정점이 없으면 이전 정점으로 돌아가서 단게 2를 수행한다.
-- 이전 정점으로 돌아가도 더 이상 방문할 이웃이 없다면 그래프의 모든 정점을 모두 방문했다는 뜻이므로 탐색을 종료한다.
+1. 시작 정점을 밟은 후 이 정점을 '방문했음'으로 표시한다.
+2. 이 정점과 이웃하고 있는 정점(인접 정점) 중에 아직 방문하지 않은 곳을 선택하여 이를 시작 정점으로 삼아 다시 1번 단계를 수행한다.
+3. 정점에 더 이상 방문하지 않은 인접 정점이 없으면 이전 정점으로 돌아가서 단게 2를 수행한다.
+4. 이전 정점으로 돌아가도 더 이상 방문할 이웃이 없다면 그래프의 모든 정점을 모두 방문했다는 뜻이므로 탐색을 종료한다.
 
-*** 예시 ***<br>
+**예시**<br>
 ![DFSBFS-예시1](/assets/img/posts/2021-09-11-graph-traversal-1.png){: width="700" height="150" }<br>
 먼저, 시작 정점 1을 밟은 후 이 정점을 '방문했음'으로 표시한다.<br>
 ![DFSBFS-예시2](/assets/img/posts/2021-09-11-graph-traversal-2.png){: width="700" height="150" }<br>
@@ -41,11 +41,11 @@ tags: [뇌를 자극하는 알고리즘]
 ---
 ## 너비 우선 탐색(Breadth First Search)
 시작 정점을 지나고 나면 깊이가 1인 모든 정점을 방문하고 그 다음에는 깊이가 2인 모든 정점을 방문한다. 이런 식으로 한 단계씩 깊이를 더해가다가 방문할 곳이 없을 때 탐색을 종료한다.<br>
-- (1) 시작 정점을 '방문했음'으로 표시하고 큐에 삽입(Enqueue)한다.
-- (2) 큐로부터 정점을 제거(Dequeue)한다. 제거한 정점이 이웃하고 있는 인접 정점 중 아직 방문하지 않은 곳들을 '방문했음'으로 표시하고 큐에 삽입한다.
-- (3) 큐가 비게 되면 탐색이 끝난다. 따라서 큐가 빌 때까지 2번 과정을 반복한다.
+1. 시작 정점을 '방문했음'으로 표시하고 큐에 삽입(Enqueue)한다.
+2. 큐로부터 정점을 제거(Dequeue)한다. 제거한 정점이 이웃하고 있는 인접 정점 중 아직 방문하지 않은 곳들을 '방문했음'으로 표시하고 큐에 삽입한다.
+3. 큐가 비게 되면 탐색이 끝난다. 따라서 큐가 빌 때까지 2번 과정을 반복한다.
 
-*** 예시 ***<br>
+**예시**<br>
 ![DFSBFS-DFS1](/assets/img/posts/2021-09-11-graph-traversal-8.png){: width="700" height="150" }<br>
 먼저 시작 정점을 '방문했음'으로 표시하고 큐에 삽입한다.<br>
 ![DFSBFS-DFS2](/assets/img/posts/2021-09-11-graph-traversal-9.png){: width="700" height="150" }<br>
@@ -67,8 +67,8 @@ tags: [뇌를 자극하는 알고리즘]
 ---
 ## 그래프 순회 예제 프로그램
 이 예제는 Graph.h, Graph.c, LinkedQueue.h, LinkedQueue.c, GraphTraversal.h, GraphTraversal.c, Test_GraphTraversal.c 총 7개의 파일로 구성되어 있다.<br>
-Graph.h, Graph.c는 [인접 리스트 예제 프로그램](https://garamm.github.io/파일명쓰기){:target="_blank"}을 그대로 사용하고<br>
-LinkedQueue.h, LinkedQueue.c는 [링크드 큐 예제 프로그램](https://garamm.github.io/파일명쓰기){:target="_blank"}에서 ElementType을 char* 에서 Vertex*로만 바꿔 사용한다.<br>
+Graph.h, Graph.c는 [인접 리스트 예제 프로그램](/posts/graph-adjacency-matrix-list/#인접-리스트-예제-프로그램){:target="_blank"}을 그대로 사용하고<br>
+LinkedQueue.h, LinkedQueue.c는 [링크드 큐 예제 프로그램](/posts/linked-queue/#소스코드){:target="_blank"}에서 ElementType을 char* 에서 Vertex*로만 바꿔 사용한다.<br>
 <br>
 GraphTraversal.h
 ```c

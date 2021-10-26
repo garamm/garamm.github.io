@@ -61,8 +61,8 @@ E에게 인접 정점 H가 있지만 B-F-E-H의 비용이 330이므로 현재 �
 # 다익스트라 알고리즘 예제 프로그램
 다음 예제는 총 7개의 파일로 구성되어 있다.<br>
 Graph.c, Graph.h, PriorityQueue.c, PriorityQueue.h, ShortestPath.c, ShortestPath.h, Test_ShortestPath.c<br>
-PriorityQueue.h, PriorityQueue.c는 [우선순위 큐 예제 프로그램](https://garamm.github.io/파일명쓰기){:target="_blank"}를 사용하고,<br>
-Graph.h, Graph.c는 [인접 리스트 예제 프로그램](https://garamm.github.io/파일명쓰기){:target="_blank"}를 사용하면 된다.<br>
+PriorityQueue.h, PriorityQueue.c는 [우선순위 큐 예제 프로그램](/posts/priority-queue/#힙을-이용한-우선순위-큐의-구현){:target="_blank"}를 사용하고,<br>
+Graph.h, Graph.c는 [인접 리스트 예제 프로그램](/posts/graph-adjacency-matrix-list/#인접-리스트-예제-프로그램){:target="_blank"}를 사용하면 된다.<br>
 <br>
 ShortestPath.h
 ```c

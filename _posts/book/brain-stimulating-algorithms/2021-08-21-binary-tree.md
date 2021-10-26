@@ -14,44 +14,48 @@ tags: [뇌를 자극하는 알고리즘]
 ---
 ## 이진 트리의 여러 형태
 ### 포화 이진 트리(Full Binary Tree)
-잎 노드를 제외한 모든 노드가 자식을 둘씩 가지고 있는 이진 트리, 잎 노드들이 모두 같은 깊이에 존재하는것이 특징
+잎 노드를 제외한 모든 노드가 자식을 둘씩 가지고 있는 이진 트리, 잎 노드들이 모두 같은 깊이에 존재하는것이 특징<br>
 ![이진트리-구조](/assets/img/posts/2021-08-21-binary-tree-1.png){: width="700" height="150" }
 <br>
 
 ### 완전 이진 트리(Complete Binary Tree)
-잎 노드들이 트리의 왼쪽부터 차곡차곡 채워진것이 특징
+잎 노드들이 트리의 왼쪽부터 차곡차곡 채워진것이 특징<br>
 ![이진트리-완전이진트리](/assets/img/posts/2021-08-21-binary-tree-2.png){: width="700" height="150" }
-아래 그림은 잎 노드들 사이에 이빨이 빠져있기 때문에 완전 이진 트리가 아니다.
+
+아래 그림은 잎 노드들 사이에 이빨이 빠져있기 때문에 완전 이진 트리가 아니다.<br>
 ![이진트리-완전이진트리2](/assets/img/posts/2021-08-21-binary-tree-3.png){: width="700" height="150" }
 <br>
 
 ### 높이 균형 트리(Height Balanced Tree)
-루트 노드를 기준으로 왼쪽 하위 트리와 오른쪽 하위 트리의 높이가 1 이상 차이나지 않는 이진 트리
+루트 노드를 기준으로 왼쪽 하위 트리와 오른쪽 하위 트리의 높이가 1 이상 차이나지 않는 이진 트리<br>
 ![이진트리-높이균형트리](/assets/img/posts/2021-08-21-binary-tree-4.png){: width="700" height="150" }
 <br>
 
 ### 완전 높이 균형 트리(Completely Height Balanced Tree)
-루트 노드를 기준으로 왼쪽 하위 트리와 오른쪽 하위 트리의 높이가 같은 이진 트리
+루트 노드를 기준으로 왼쪽 하위 트리와 오른쪽 하위 트리의 높이가 같은 이진 트리<br>
 ![이진트리-완전높이균형트리](/assets/img/posts/2021-08-21-binary-tree-5.png){: width="700" height="150" }
 <br>
 
 ---
 ## 이진 트리의 순회
 ### 전위 순회(Preorder Traversal)
-루트 노드부터 잎 노드까지 아래 방향으로 방문
+루트 노드부터 잎 노드까지 아래 방향으로 방문<br>
 ![이진트리-전위순회](/assets/img/posts/2021-08-21-binary-tree-6.png){: width="700" height="150" }
+
 ( A ( B ( C, D ), ( E ( F, G ) ) )
 <br>
 
 ### 중위 순회(Inorder Traversal)
-왼쪽 하위 트리부터 오른쪽 하위 트리 방향으로 방문
+왼쪽 하위 트리부터 오른쪽 하위 트리 방향으로 방문<br>
 ![이진트리-중위순회](/assets/img/posts/2021-08-21-binary-tree-7.png){: width="700" height="150" }
+
 ( 1 * 2 ) + ( 7 - 8 )
 <br>
 
 ### 후위 순회(Postorder Traversal)
-루트, 왼쪽 하위 트리, 오른쪽 하위 트리 순으로 방문
+루트, 왼쪽 하위 트리, 오른쪽 하위 트리 순으로 방문<br>
 ![이진트리-후위순회](/assets/img/posts/2021-08-21-binary-tree-8.png){: width="700" height="150" }
+
 1 2 * 7 8 - +
 <br>
 

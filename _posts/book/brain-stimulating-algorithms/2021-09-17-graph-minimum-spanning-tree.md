@@ -59,10 +59,11 @@ C-F 간선이 빠진 이유는 C-F 간선이 B-C-F를 통과하는 사이클을 
 <br>
 
 ### 프림 알고리즘 구현
-프림 알고리즘을 구현하기 위해서는 고려할 사항이 2개가 있다.<br>
-(1) 최소 신장 트리의 자료구조로 무엇을 사용할 것인가?<br>
-후보 자료구조로는 배열, 링크드 리스트, 드리 등 여러 가지가 있지만 최소 신장 트리는 그래프이므로 이번 예제에서는 그래프를 이용한다.<br>
-(2) 조사 대상 간선에서 최소 가중치를 가진 정점을 골라내는 과정에서 발생하는 성능 문제<br>
+프림 알고리즘을 구현하기 위해서는 고려할 사항이 2개가 있다.<br><br>
+**(1) 최소 신장 트리의 자료구조로 무엇을 사용할 것인가?**<br>
+후보 자료구조로는 배열, 링크드 리스트, 드리 등 여러 가지가 있지만 최소 신장 트리는 그래프이므로 이번 예제에서는 그래프를 이용한다.<br><br>
+
+**(2) 조사 대상 간선에서 최소 가중치를 가진 정점을 골라내는 과정에서 발생하는 성능 문제**<br>
 최소 신장 트리에 정점이 하나 추가될 때마다 그 수가 늘어나거나 줄어드는 조사 대상 간선 집합 속에서 '최소 가중치'를 가진 간선을 찾아내야 한다.<br>
 그래프에 정점이 N개가 존재한다고 하면 최소 신장 트리에 정점을 추가하는 작업을 N번 해야하고, 정점을 추가할 때마다 그래프 내의 정점 N개를 순회해야 하므로 N²회 반복을 돌아야 한다.<br>
 이 문제를 해결하기 위해서 삽입과 삭제가 빠르고 최소 값을 찾는 데에 거의 비용이 들지 않는 우선순위 큐를 사용하는 것이 적합하다.<br>
@@ -90,7 +91,8 @@ C-F 간선이 빠진 이유는 C-F 간선이 B-C-F를 통과하는 사이클을 
 
 ![분리집합2](/assets/img/posts/2021-09-17-graph-minimum-spanning-tree-14.png){: width="700" height="150" }<br>
 <br>
-분리 집합 소스코드
+
+분리 집합 소스코드<br>
 DisjointSet.h
 ```c
 #include <stdio.h>
@@ -194,9 +196,9 @@ A - E : 247
 ## 최소 신장 트리 예제 프로그램
 다음 예제 프로그램에서는 프림 알고리즘과 크루스칼 알고리즘이 모두 포함되어 있기 때문에 파일이 총 9개가 된다.<br>
 (DisjointSet.c, DisjointSet.h, PriorityQueue.c, PriorityQueue.h, Graph.c, Graph.h, MST.c, MST.h, Test_MST.c)
-DisjointSet.h, DisjointSet.c는 위의 [분리 집합 소스코드](https://garamm.github.io/현재파일명/#위치)를 사용하고,<br>
-PriorityQueue.h, PriorityQueue.c는 [우선순위 큐 예제 프로그램](https://garamm.github.io/파일명쓰기){:target="_blank"}를 사용하고,<br>
-Graph.h, Graph.c는 [인접 리스트 예제 프로그램](https://garamm.github.io/파일명쓰기){:target="_blank"}를 사용하면 된다.<br>
+DisjointSet.h, DisjointSet.c는 위의 [분리 집합 소스코드](/posts/graph-minimum-spanning-tree/#분리-집합){:target="_blank"} 를 사용하고,<br>
+PriorityQueue.h, PriorityQueue.c는 [우선순위 큐 예제 프로그램](/posts/priority-queue/#힙을-이용한-우선순위-큐의-구현){:target="_blank"}를 사용하고,<br>
+Graph.h, Graph.c는 [인접 리스트 예제 프로그램](/posts/graph-adjacency-matrix-list/#인접-리스트-예제-프로그램){:target="_blank"}를 사용하면 된다.<br>
 <br>
 MST.h
 ```c

@@ -59,8 +59,8 @@ tags: [뇌를 자극하는 알고리즘]
 4. 출구를 찾거나 미로 내의 모든 길을 방문할 때까지 2, 3번 과정을 반복한다.
 
 미로 예제는 데이터 파일 2개와 소스 코드 3개로 이루어져있다.<br>
-[MazeSample.dat 다운로드]()<br>
-[MazeSample2.dat 다운로드]()
+[MazeSample.dat 파일 다운로드](/assets/file/MazeSample.dat){:target="_blank"} <br>
+[MazeSample2.dat 파일 다운로드](/assets/file/MazeSample2.dat){:target="_blank"}
 
 MazeSolver.h
 ```c

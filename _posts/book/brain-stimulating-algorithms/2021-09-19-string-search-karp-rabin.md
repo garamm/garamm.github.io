@@ -78,7 +78,8 @@ $(2(H_{i-1} - S[i-1] \times s^{m-1}) + S[i+m-1]) \; mod \; q,$
 
 ---
 ## 카프-라빈 알고리즘의 구현
-[본문을 담고 있는 파일 다운받기](경로)
+[본문을 담고 있는 파일 보기](/assets/file/kjv.txt){:target="_blank"}
+
 <br>
 
 KarpRabin.h

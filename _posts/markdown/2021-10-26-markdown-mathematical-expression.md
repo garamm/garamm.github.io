@@ -3,8 +3,8 @@ layout: post
 title: "[Markdown] LaTeX로 markdown에 수식 작성하기"
 author: 임가람
 date: "2021-10-26 00:52:00"
-categories: [책, 뇌를 자극하는 알고리즘]
-tags: [뇌를 자극하는 알고리즘]
+categories: [Markdown]
+tags: [Markdown, 수식]
 ---
 
 ## LaTeX란?

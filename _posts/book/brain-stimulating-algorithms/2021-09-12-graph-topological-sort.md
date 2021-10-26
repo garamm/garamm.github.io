@@ -24,9 +24,9 @@ DAG를 활용하여 위상 정렬을 해본다!<br>
 ![위상정렬-예시2](/assets/img/posts/2021-09-12-graph-topological-sort-2.png){: width="700" height="150" }<br>
 
 위상 정렬은 다음과 같은 과정으로 진행된다.<br>
-- (1) 리스트를 하나 준비한다.
-- (2) 그래프에서 진입 간선이 없는 정점을 리스트에 추가하고, 해당 정점 자신과 진출 간선을 제거한다.
-- (3) 모든 정점에 대해 2번을 반복하고, 그래프 내에 정점이 남아 있지 않으면 정렬을 종료한다. 이때 리스트에는 위상 정렬된 그래프가 저장된다.
+1. 리스트를 하나 준비한다.
+2. 그래프에서 진입 간선이 없는 정점을 리스트에 추가하고, 해당 정점 자신과 진출 간선을 제거한다.
+3. 모든 정점에 대해 2번을 반복하고, 그래프 내에 정점이 남아 있지 않으면 정렬을 종료한다. 이때 리스트에는 위상 정렬된 그래프가 저장된다.
 
 위의 DAG 그래프를 활용하여 위상정렬 진행해보면<br>
 1번에 따라 리스트를 하나 준비하고 2번에 따라 진입 간선이 없는 정점 A, B중 하나를 골라 시작한다.<br>
@@ -83,8 +83,8 @@ B는 더 이상 방문할 수 있는 인접 정점이 없으므로 리스트의 
 ---
 ## 위상 정렬 예제 프로그램
 아래 예제 프로그램에서는 Graph.h, Graph.c, LinkedList.h, LinkedList.c, TopologicalSort.h, TopologicalSort.c, Test_TopologicalSort.c 총 7개의 파일로 구성되어 있다.<br>
-Graph.h, Graph.c는 [인접 리스트 예제 프로그램](https://garamm.github.io/파일명쓰기){:target="_blank"}을 그대로 사용하고<br>
-LinkedList.h, LinkedList.c는 [링크드 리스트 예제 프로그램](https://garamm.github.io/파일명쓰기){:target="_blank"}에서 ElementType을 int* 에서 Vertex*로만 바꿔 사용한다.<br>
+Graph.h, Graph.c는 [인접 리스트 예제 프로그램](/posts/graph-adjacency-matrix-list/#인접-리스트-예제-프로그램){:target="_blank"}을 그대로 사용하고<br>
+LinkedList.h, LinkedList.c는 [링크드 리스트 예제 프로그램](/posts/linkedlist/#예제-코드){:target="_blank"}에서 ElementType을 int* 에서 Vertex*로만 바꿔 사용한다.<br>
 <br>
 TopologicalSort.h
 ```c
