@@ -1,7 +1,0 @@
-#  The date format
-
-tooltip: "%a, %b %e, %Y, %l:%M %p"
-
-post:
-  long: "%b %e, %Y"
-  short: "%b %e"

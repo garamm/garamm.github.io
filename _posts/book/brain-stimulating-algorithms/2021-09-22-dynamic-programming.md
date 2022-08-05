@@ -134,14 +134,14 @@ Fibonacci(46) = 1836311903
 최장 공통 부분 순서 알고리즘은 주로 두 데이터를 비교할 때 아주 유용하다.<br>
 
 ## LCS 알고리즘
-두 문자열 $X_i = \langle x_1x_2x_3 \ldots x_i \rangle$ , $Y_j = \langle y_1y_2y_3 \ldots y_j \rangle$이 있다고 하고, 두 문자열을 매개 변수로 받아 이들 사이에서 나올 수 있는 LCS의 '길이'를 구하는 함수는 LCS_LENGTH()라고 하자.<br>
-먼저 $i$나 $j$ 둘 중 하나의 길이가 0이면 공통 부분 순서가 존재하지 않기 때문에 LCS_LENGTH($X_i$, $Y_j$)의 결과는 0이다. <br>
-그리고 $x_i$와 $y_j$가 같다면, 즉 $X_i$와$Y_j$의 마지막 요소가 같다면 당연히 LCS에 포함되므로 LCS_LENGTH($X_i$, $Y_j$)는 LCS_LENGTH($X_{i-1}$, $Y_{j-1})$+1와 동일하다.<br>
+두 문자열 $X_i = \langle x_1x_2x_3 \ldots x_i \rangle$ , $Y_j = \langle y_1y_2y_3 \ldots y_j \rangle$이 있다고 하고, 두 문자열을 매개 변수로 받아 이들 사이에서 나올 수 있는 LCS의 '길이'를 구하는 함수는 $\texttt{LCS_LENGTH()}$라고 하자.<br>
+먼저 $i$나 $j$ 둘 중 하나의 길이가 0이면 공통 부분 순서가 존재하지 않기 때문에 $\texttt{LCS_LENGTH} (X_i, Y_j)$의 결과는 0이다. <br>
+그리고 $x_i$와 $y_j$가 같다면, 즉 $X_i$와$Y_j$의 마지막 요소가 같다면 당연히 LCS에 포함되므로 $\texttt{LCS_LENGTH} (X_i, Y_j)$는 $\texttt{LCS_LENGTH} (X_{i-1}, Y_{j-1})+1$와 동일하다.<br>
 따라서 이 경우에는 다음과 같은 점화식이 성립한다.<br>
-LCS_LENGTH($X_i$, $Y_j$) = LCS_LENGTH($X_{i-1}$, $Y_{j-1})$+1<br>
-두 문자열의 길이가 둘 다 0이 아니고 마지막 요소도 서로 다른 경우에는 LCS_LENGTH($X_{i-1}$, $Y_j$)와 LCS_LENGTH($X_{i}$, $Y_{j-1}$) 중에서 큰 쪽이 LCS_LENGTH($X_{i}$, $Y_j$)의 해가 된다.<br>
+$\texttt{LCS_LENGTH} (X_i, Y_j)$ = $\texttt{LCS_LENGTH} (X_{i-1}, Y_{j-1})+1$<br>
+두 문자열의 길이가 둘 다 0이 아니고 마지막 요소도 서로 다른 경우에는 $\texttt{LCS_LENGTH} (X_{i-1}, Y_j)$와 $\texttt{LCS_LENGTH} (X_{i}, Y_{j-1})$ 중에서 큰 쪽이 $\texttt{LCS_LENGTH} (X_{i}, Y_j)$의 해가 된다.<br>
 두 문자열의 마지막 요소를 각각 $x_i$, $y_j$라고 하면, 이 두 요소끼리는 같지 않지만 $x_i$와 $y_{j-1}$는 같을 수 있다. 또는 $x_{i-1}$와 $y_{j}$도 같을 수 있다.<br>
-따라서 이 경우에는 LCS_LENGTH($X_{i-1}$, $Y_j$)와 LCS_LENGTH($X_{i}$, $Y_{j-1}$) 중에서 큰 쪽이 LCS_LENGTH($X_{i}$, $Y_j$)의 해가 된다.<br>
+따라서 이 경우에는 $\texttt{LCS_LENGTH} (X_{i-1}, Y_j)$와 $\texttt{LCS_LENGTH} (X_{i}, Y_{j-1})$ 중에서 큰 쪽이 $\texttt{LCS_LENGTH} (X_{i}, Y_j)$의 해가 된다.<br>
 위 세 가지 경우를 정리하여 점화식을 만들면 다음과 같다.<br>
 
 $
