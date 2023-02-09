@@ -5,8 +5,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css" />
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
     <title>임가람의 포트폴리오 입니다</title>
 </head>
 
@@ -14,426 +16,224 @@
 
     <div id="container">
         <nav id="menu-left">
-            <button id="closeBtn"><i class="fa-regular fa-x"></i></button>
-            <img id="img-profile" src="imgs/profile.jpg">
-            <p id="nav-icons">
-                <a href="https://github.com/garamm" target="_blank"><i class="fa-brands fa-github"></i></a>
-                <a href="https://garamm.tistory.com" target="_blank"><i class="fa-solid fa-blog"></i></a>
-                <a href="mailto:garam1201@gmail.com" target="_blank"><i class="fa-regular fa-envelope"></i></a>
-            </p>
-            <ul>
-                <a href="#about">
-                    <li>About</li>
-                </a>
-                <a href="#skills">
-                    <li>Skills</li>
-                </a>
-                <a href="#work">
-                    <li>Work</li>
-                </a>
-                <a href="#contact">
-                    <li>Contact</li>
-                </a>
-            </ul>
-        </nav>
-
-        <nav id="menu-top">
-            <button id="menuBtn"><i class="fa-solid fa-bars"></i></button>
-            안녕하세요, 개발자 임가람 입니다.
-        </nav>
-
-        
-        <div id="content">
-            <!-- About -->
-            <article id="about">
-                <h1>🙋 About</h1>
-                <p>프론트엔드를 넘어 백엔드를 향해 나아가는 6년차 개발자 <span class="sub-title">임가람</span> 입니다.</p>
-                <p>
-                    여러 번의 경험으로 새로운 기술을 배우는 데 두려움이 없습니다.<br>
-                    깔끔하며 효율적인, 가독성 좋은 코드를 짜는것을 좋아합니다.<br>
-
+            <div>
+                <button id="closeBtn"><i class="fa-regular fa-x"></i></button>
+                <img id="img-profile" src="imgs/profile.jpg">
+                <p id="nav-icons">
+                    <a href="https://github.com/garamm" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://garamm.tistory.com" target="_blank"><i class="fa-solid fa-blog"></i></a>
+                    <a href="mailto:garam1201@gmail.com" target="_blank"><i class="fa-regular fa-envelope"></i></a>
                 </p>
-                <section>
-                    <h3>Education</h3>
-                    <span class="sub-title">한국공학대학교</span><br>
-                    컴퓨터 공학 전공, 학사<br>
-                    2013.03 ~ 2017.02
+                <ul>
+                    <a href="#about">
+                        <li>About</li>
+                    </a>
+                    <a href="#skills">
+                        <li>Skills</li>
+                    </a>
+                    <a href="#work">
+                        <li>Work</li>
+                    </a>
+                    <a href="#contact">
+                        <li>Contact</li>
+                    </a>
+                </ul>
+            </div>
+        </nav>
 
-                </section>
-                <section>
-                    <h3>Certificate</h3>
-                    <span class="sub-title">정보처리기사</span><br>
-                    2018.02<br><br>
-                    <span class="sub-title">SQL개발자(SQLD)</span><br>
-                    2021.04
-                </section>
-            </article>
-
-            <!-- Skills -->
-            <article id="skills">
-                <h1>🤹‍♀️ Skills</h1>
-                <h3>Frontend</h3>
-                <div>
-                    <span class="tag tag-red">Android</span>
-                    <span class="tag tag-red">iOS</span>
-                    <span class="tag tag-red">HTML, CSS, JavaScript, JQuery</span>
-                    <span class="tag tag-red">Vue.js</span>
-                </div>
-                <h3>Backend</h3>
-                <div>
-                    <span class="tag tag-blue">Java</span>
-                    <span class="tag tag-blue">Spring boot</span>
-                    <span class="tag tag-blue">MyBatis</span>
-                    <span class="tag tag-blue">JPA</span>
-                    <span class="tag tag-blue">Querydsl</span>
-                    <span class="tag tag-blue">MySQL</span>
-                    <span class="tag tag-blue">Redis</span>
-                    <span class="tag tag-blue">Node.js</span>
-                    <span class="tag tag-blue">NestJS</span>
-                    <span class="tag tag-blue">TypeScript</span>
-                    <span class="tag tag-blue">PHP</span>
-                    <span class="tag tag-blue">Docker</span>
-                </div>
-
-                <h3>Tool</h3>
-                <div>
-                    <span class="tag tag-green">IntelliJ</span>
-                    <span class="tag tag-green">Github</span>
-                    <span class="tag tag-green">Android Studio</span>
-                    <span class="tag tag-green">XCode</span>
-                    <span class="tag tag-green">Visual Studio Code</span>
-                </div>
+        <div class="content-wrapper">
+            <nav id="menu-top">
+                <button id="menuBtn"><i class="fa-solid fa-bars"></i></button>
+                안녕하세요, 개발자 임가람 입니다.
+            </nav>
 
 
+            <div id="content">
+                <!-- About -->
+                <article id="about">
+                    <h1>🙋 About</h1>
+                    <p>프론트엔드를 넘어 백엔드를 향해 나아가는 6년 차 개발자 <span class="sub-title">임가람</span>입니다.</p>
+                    <p>
+                        여러 번의 경험으로 새로운 기술을 배우는 데 두려움이 없습니다.<br>
+                        깔끔하며 효율적인, 가독성 좋은 코드를 짜는 것을 좋아합니다.<br>
 
-            </article>
+                    </p>
+                    <section>
+                        <h3>Education</h3>
+                        <span class="sub-title">한국공학대학교</span><br>
+                        컴퓨터 공학 전공, 학사<br>
+                        2013.03 ~ 2017.02
+                    </section>
 
-            <!-- Work -->
-            <article id="work">
-                <h1>👩‍💼 Work</h1>
-                <section style="margin-bottom: 2rem;">
-                    <span class="sub-title">(주)온카드시스템</span><br>
-                    Android, iOS, Web Frontend & Java Backend Engineer<br>
-                    2017.06 ~ 2022.06 (총 5년 1개월)
-                </section>
+                    <section>
+                        <h3>Certificate</h3>
+                        <span class="sub-title">정보처리기사</span><br>
+                        2018.02<br><br>
+                        <span class="sub-title">SQL개발자(SQLD)</span><br>
+                        2021.04
+                    </section>
+                </article>
 
-                <section>
-                    <div class="card-wrap">
-                        <span class="sub2-title">대리운전 및 결제시스템 관련 Android, iOS 앱 개발 및 API 유지보수</span><br>
-                        ˙ Android, Swift, PHP, Nodejs, MySQL<br>
-                        ˙ Android, iOS 앱 개발 및 PHP 레거시 코드 리팩토링 경험<br>
-                        ˙ Card.io 및 구글 클라우드 비전을 활용한 운전면허증 인식 기능 개발
+                <!-- Skills -->
+                <article id="skills">
+                    <h1>🤹‍♀️ Skills</h1>
+                    <h3>Frontend</h3>
+                    <div>
+                        <span class="tag tag-red">Android</span>
+                        <span class="tag tag-red">iOS</span>
+                        <span class="tag tag-red">HTML, CSS, JavaScript, JQuery</span>
+                        <span class="tag tag-red">Vue.js</span>
+                    </div>
+                    <h3>Backend</h3>
+                    <div>
+                        <span class="tag tag-blue">Java</span>
+                        <span class="tag tag-blue">Spring boot</span>
+                        <span class="tag tag-blue">MyBatis</span>
+                        <span class="tag tag-blue">JPA</span>
+                        <span class="tag tag-blue">Querydsl</span>
+                        <span class="tag tag-blue">MySQL</span>
+                        <span class="tag tag-blue">Redis</span>
+                        <span class="tag tag-blue">Node.js</span>
+                        <span class="tag tag-blue">NestJS</span>
+                        <span class="tag tag-blue">TypeScript</span>
+                        <span class="tag tag-blue">PHP</span>
+                        <span class="tag tag-blue">Docker</span>
                     </div>
 
-                    <div class="card-wrap">
-                        <span class="sub2-title">쇼핑몰 등의 각종 웹 사이트 유지보수</span><br>
-                        ˙ Html, CSS, JavaScript, Vue.js, PHP, MySQL<br>
-                        ˙ 기존의 웹사이트 UI 수정 및 신규 웹사이트 개발<br>
-                        ˙ 웹 Frontend 경험<br>
-                        ˙ 모빌리언스, 이니시스, KCP, 다날의 인증/비인증 결제 모듈 연동 경험
+                    <h3>Tool</h3>
+                    <div>
+                        <span class="tag tag-green">IntelliJ</span>
+                        <span class="tag tag-green">Github</span>
+                        <span class="tag tag-green">Android Studio</span>
+                        <span class="tag tag-green">XCode</span>
+                        <span class="tag tag-green">Visual Studio Code</span>
                     </div>
 
-                    <div class="card-wrap">
-                        <span class="sub2-title">푸시 발송 데몬 개발</span><br>
-                        ˙ Spring boot, MySQL, Firebase, Android, iOS<br>
-                        ˙ 푸시 일반 발송, 예약 발송, 이미지 발송 데몬 개발<br>
-                        ˙ 푸시가 필요한 iOS, Android 앱에서 수신 가능하도록 개발<br>
-                        ˙ 대량 푸시 발송 시 토픽 사용 등의 FCM의 기능 사용 경험
-                    </div>
-
-                    <div class="card-wrap">
-                        <span class="sub2-title">가상계좌 입출금 데몬 개발</span><br>
-                        ˙ Spring boot, JPA, Querydsl, Netty, MySQL<br>
-                        ˙ 헥토파이낸셜의 가상계좌 서비스를 활용하여 가상계좌 입출금 데몬 개발<br>
-                        ˙ 입출금, 잔액 관련 DB 설계<br>
-                        ˙ 가상계좌 발급, 입금, 출금 프로세스 이해 및 Netty 사용 경험
-                    </div>
-
-                    <div class="card-wrap">
-                        <span class="sub2-title">안심번호 데몬 개발</span><br>
-                        ˙ Spring boot, MySQL, Vue.js<br>
-                        ˙ KT, LG의 안심번호 서비스를 활용하여 안심번호 매칭, 해제 데몬 개발<br>
-                        ˙ 안심번호 발급 시 번호 대역에서 랜덤으로 매칭하는 프로세스 이해
-                    </div>
-
-                    <div class="card-wrap">
-                        <span class="sub2-title">픽업 서비스 개발</span><br>
-                        ˙ Spring boot, Netty, Nodejs, Nestjs, HAProxy, Docker, MySQL, Redis<br>
-                        ˙ 픽업 서비스 전체 서버 구성 및 구현 경험<br>
-                        ˙ TDD 활용 경험<br>
-                        ˙ 데이터 조회 기능 개선을 위한 Redis 활용 경험<br>
-                        ˙ 서비스 관련하여 가상계좌, 안심번호, FCM을 활용한 Push 서버 개발 및 구성
-                    </div>
-                </section>
-            </article>
-
-            <!-- Contact -->
-            <article id="contact">
-                <h1>👋 Contact</h1>
-                <h3>Email</h3>
-                <a href="mailto:garam1201@gmail.com" target="_blank"><i class="fa-brands fa-github"></i>
-                    garam1201@gmail.com</a>
-                <h3>Github</h3>
-                <a href="https://github.com/garamm" target="_blank"><i class="fa-solid fa-blog"></i>
-                    https://github.com/garamm</a>
-                <h3>Blog</h3>
-                <a href="https://garamm.tistory.com" target="_blank"><i class="fa-regular fa-envelope"></i>
-                    https://garamm.tistory.com</a>
-            </article>
 
 
+                </article>
+
+                <!-- Work -->
+                <article id="work">
+                    <h1>👩‍💼 Work</h1>
+                    <section style="margin-bottom: 2rem;">
+                        <span class="sub-title">(주)온카드시스템</span><br>
+                        Android, iOS, Web Frontend & Java Backend Engineer<br>
+                        2017.06 ~ 2022.06 (총 5년 1개월)
+                    </section>
+
+                    <section>
+                        <div class="card-wrap">
+                            <span class="sub2-title">CTI(컴퓨터 전화 통합) 서버 관리 및 세팅 작업</span><br>
+                            ˙ Java, CentOS, 네트워크<br>
+                            ˙ 대리운전 콜센터에서 사용하는 CTI 서버 관리<br>
+                            ˙ 콜센터 서버 및 허브 구성 파악 경험<br>
+                            ˙ 전화기와 CTI서버가 연결될 수 있도록 전화기 환경 세팅 작업 경험<br>
+                            ˙ CTI 본서버 및 예비서버 녹취 파일 용량 관리<br>
+                            ˙ 녹취 현황 볼 수 있는 사이트 유지보수
+                        </div>
+
+                        <div class="card-wrap">
+                            <span class="sub2-title">대리운전 및 결제시스템 관련 Android, iOS 앱 개발 및 API 유지보수</span><br>
+                            ˙ Android, Swift, PHP, Nodejs, MySQL<br>
+                            ˙ Android, iOS 앱 개발 및 PHP 레거시 코드 리팩토링 경험<br>
+                            ˙ Card.io 및 구글 클라우드 비전을 활용한 운전면허증 인식 기능 개발
+                        </div>
+
+                        <div class="card-wrap">
+                            <span class="sub2-title">쇼핑몰 등의 각종 웹 사이트 유지보수</span><br>
+                            ˙ Html, CSS, JavaScript, Vue.js, PHP, MySQL<br>
+                            ˙ 기존의 웹사이트 UI 수정 및 신규 웹사이트 개발<br>
+                            ˙ 웹 Frontend 경험<br>
+                            ˙ 모빌리언스, 이니시스, KCP, 다날의 인증/비인증 결제 모듈 연동 경험
+                        </div>
+
+                        <div class="card-wrap">
+                            <span class="sub2-title">크롤러 개발</span><br>
+                            ˙ Python, BeautifulSoup<br>
+                            ˙ B2B 사이트의 상품 정보 크롤러 개발<br>
+                            ˙ 해당 상품이 품절 됐는지 여부를 파악하는 크롤러 개발<br>
+                            ˙ Python 기본 문법 숙지 및 BeautifulSoup 활용 경험
+                        </div>
+
+                        <div class="card-wrap">
+                            <span class="sub2-title">가상계좌 입출금 데몬 개발</span><br>
+                            ˙ Spring boot, JPA, Querydsl, Netty, MySQL<br>
+                            ˙ 헥토파이낸셜의 가상계좌 서비스를 활용하여 가상계좌 입출금 데몬 개발<br>
+                            ˙ 입출금, 잔액 관련 DB 설계<br>
+                            ˙ 가상계좌 발급, 입금, 출금 프로세스 이해 및 Netty 사용 경험
+                        </div>
+
+                        <div class="card-wrap">
+                            <span class="sub2-title">안심번호 데몬 개발</span><br>
+                            ˙ Spring boot, MySQL, Vue.js<br>
+                            ˙ KT, LG의 안심번호 서비스를 활용하여 안심번호 매칭, 해제 데몬 개발<br>
+                            ˙ 안심번호 발급 시 번호 대역에서 랜덤으로 매칭하는 프로세스 이해
+                        </div>
+
+                        <div class="card-wrap">
+                            <span class="sub2-title">푸시 발송 데몬 개발</span><br>
+                            ˙ Spring boot, MySQL, Firebase, Android, iOS<br>
+                            ˙ 푸시 일반 발송, 예약 발송, 이미지 발송 데몬 개발<br>
+                            ˙ 푸시가 필요한 iOS, Android 앱에서 수신 가능하도록 개발<br>
+                            ˙ 대량 푸시 발송 시 토픽 사용 등의 FCM의 기능 사용 경험
+                        </div>
+
+                        <div class="card-wrap">
+                            <span class="sub2-title">픽업 서비스 개발</span><br>
+                            ˙ Spring boot, Netty, Nodejs, Nestjs, HAProxy, Docker, MySQL, Redis<br>
+                            ˙ 픽업 서비스 전체 서버 구성 및 구현 경험<br>
+                            ˙ 클라우드 서버 이용 경험(Naver Cloud Platform)<br>
+                            ˙ TDD 활용 경험<br>
+                            ˙ 데이터 조회 기능 개선을 위한 Redis 활용 경험<br>
+                            ˙ 해당 서비스 관련하여 가상계좌, 안심번호, FCM을 활용한 Push 서버 구성 및 개발
+                        </div>
+                    </section>
+                </article>
+
+                <!-- Contact -->
+                <article id="contact">
+                    <h1>👋 Contact</h1>
+                    <h3>Github</h3>
+                    <a href="mailto:garam1201@gmail.com" target="_blank"><i class="fa-brands fa-github"></i>
+                        https://github.com/garamm</a>
+                    <h3>Blog</h3>
+                    <a href="https://github.com/garamm" target="_blank"><i class="fa-solid fa-blog"></i>
+                        https://garamm.tistory.com</a>
+                    <h3>Email</h3>
+                    <a href="https://garamm.tistory.com" target="_blank"><i class="fa-regular fa-envelope"></i>
+                        garam1201@gmail.com</a>
+                </article>
+            </div>
         </div>
-
     </div>
 </body>
 
 </html>
 
-<style>
-    @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
-
-    :root {
-        --bg-main: #F8F9FA;
-        --bg-black: #000;
-        --bg-tag-red: #f8a1a1;
-        --bg-tag-blue: #a1e7f8;
-        --bg-tag-green: #abf8a1;
-        --text-main: #212529;
-        --text-white: #F8F9FA;
-        --text-point: #c7254e;
-    }
-
-    html {
-        scroll-behavior: smooth;
-    }
-
-    body {
-        margin: 0;
-        padding: 0;
-        background-color: var(--bg-main);
-        color: var(--text-main);
-        font-family: 'Noto Sans KR', sans-serif;
-        font-weight: 300;
-        box-sizing: border-box;
-    }
-
-    #nav-icons {
-        display: flex;
-        width: 80%;
-        margin-left: 10%;
-        margin-bottom: 2rem;
-        justify-content: space-around;
-    }
-
-    #container {
-        display: flex;
-        flex-direction: row;
-    }
-
-    #content {
-        display: flex;
-        flex-direction: column;
-        padding: 2rem;
-        margin-left: 300px;
-    }
-
-    #img-profile {
-        width: 200px;
-        height: 200px;
-        border-radius: 100px;
-        margin: 3rem;
-    }
-
-    #menu-left {
-        width: 300px;
-        background-color: var(--text-main);
-        text-align: center;
-        position: -webkit-sticky;
-        position: fixed;
-        top: 0px;
-        left: 0px;
-        bottom: 0px;
-    }
-
-    a {
-        text-decoration: none;
-    }
-
-
-    nav a {
-        color: var(--text-white);
-    }
-
-    nav ul {
-        list-style: none;
-        margin: 0px;
-        padding: 0;
-    }
-
-    nav ul li {
-        padding: 16px 0;
-    }
-
-    nav ul li:hover {
-        background-color: var(--bg-black);
-        text-decoration: underline;
-    }
-
-    article {
-        margin-bottom: 3rem;
-    }
-
-    h3 {
-        text-decoration: underline;
-    }
-
-    .tag {
-        padding: 3px 8px;
-        border-radius: 5px;
-        font-size: 0.85rem;
-        margin-right: 5px;
-        margin-bottom: 10px;
-        display: inline-block;
-    }
-
-    .tag-red {
-        color: var(--text-white);
-        background-color: var(--bg-tag-red);
-    }
-
-    .tag-blue {
-        background-color: var(--bg-tag-blue);
-    }
-
-    .tag-green {
-        background-color: var(--bg-tag-green);
-    }
-
-    .card-wrap {
-        margin-bottom: 2rem;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        transition: 0.3s;
-        padding: 1rem;
-        border-radius: 5px;
-        line-height: 1.7rem;
-    }
-
-    #contact a {
-        color: var(--text-main);
-    }
-
-    .sub-title {
-        font-weight: 500;
-        font-size: 1.08rem;
-        font-style: italic;
-    }
-
-    .sub2-title {
-        display: inline-block;
-        font-weight: 500;
-        font-style: italic;
-        margin-bottom: 8px;
-    }
-
-    hr {
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-    }
-
-    #menu-top {
-        box-sizing: border-box;
-        width: 100%;
-        background-color: var(--bg-main);
-        height: 56px;
-        box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2);
-        transition: 0.3s;
-        display: none;
-        text-align: left;
-        padding-left: 10px;
-        flex-direction: row;
-        align-items: center;
-    }
-
-
-    #menu-top span {
-        display: inline-block;
-    }
-
-    #menuBtn {
-        background: none;
-        border: none;
-        cursor: pointer;
-        font-size: 28px;
-        margin-right: 8px;
-    }
-
-    #closeBtn {
-        display: none;
-        background: none;
-        border: none;
-        cursor: pointer;
-        position: relative;
-        top: 0px;
-        color: var(--text-white);
-        font-size: 28px;
-        position: absolute;
-        right: 16px;
-        top: 16px;
-    }
-
-    @media (min-width: 1025px) {
-        #container {
-            flex-direction: row;
-        }
-
-        #content {
-            margin-left: 300px;
-        }
-
-        #menu-top {
-            display: none;
-        }
-
-        #menu-left {
-            left: 0px;
-        }
-    }
-
-    @media (max-width: 1024px) {
-        #container {
-            flex-direction: column;
-        }
-
-        #content {
-            margin-left: 0px;
-        }
-
-        #menu-top {
-            display: flex;
-        }
-
-        #menu-left {
-            left: -300px;
-        }
-    }
-</style>
 
 <script>
     $(document).ready(function () {
         $("#menuBtn").on("click", function (event) {
-            $('#container').css('flex-direction', 'row');
-            $("#menu-left").animate({ 'left': "0px"}, 300);
-            $('#menu-top').css('display', 'none');
-            $('#closeBtn').css('display', 'block');
-            $("#content").animate({ 'margin-left': "300px"}, 300);
+            openMenu();
         });
 
         $("#closeBtn").on("click", function (event) {
-            $('#container').css('flex-direction', 'column');
-            $("#menu-left").animate({ 'left': "-300px"}, 300);
-            $('#menu-top').css('display', 'flex');
-            $('#closeBtn').css('display', 'none');
-            $("#content").animate({ 'margin-left': "0px"}, 300);
+            closeMenu();
+        });
+
+        $("#content").on("click", function (event) {
+            closeMenu();
         });
     });
+
+    function openMenu() {
+        $("#menu-left").animate({ 'left': "0px" }, 300);
+        $('#closeBtn').css('display', 'block');
+    }
+
+    function closeMenu() {
+        $("#menu-left").animate({ 'left': "-300px" }, 300);
+        $('#closeBtn').css('display', 'none');
+    }
 </script>
