@@ -1,4 +1,6 @@
-@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+/* @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css); */
+@import url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@2.0/nanumsquare.css);
+
 
 :root {
     --bg-main: #F8F9FA;
@@ -29,9 +31,17 @@ body {
     padding: 0;
     background-color: var(--bg-main);
     color: var(--text-main);
-    font-family: 'Noto Sans KR', sans-serif;
-    font-weight: 300;
+    /* font-family: 'Noto Sans KR', sans-serif; */
+    /* font-weight: 300; */
+    font-family: 'NanumSquare', sans-serif;
+    font-weight: 500;
     box-sizing: border-box;
+}
+
+
+
+i {
+    font-size: 1.2rem;
 }
 
 #nav-icons {
@@ -150,16 +160,16 @@ h3 {
 }
 
 .sub-title {
-    font-weight: 500;
+    font-weight: 700;
     font-size: 1.08rem;
-    font-style: italic;
+    line-height: 2rem;
 }
 
 .sub2-title {
     display: inline-block;
-    font-weight: 500;
-    font-style: italic;
+    font-weight: 700;
     margin-bottom: 8px;
+    line-height: 2rem;
 }
 
 hr {
