@@ -71,11 +71,19 @@ i {
     padding: 2rem;
 }
 
-#img-profile {
+.img-profile {
     width: 200px;
     height: 200px;
     border-radius: 100px;
     margin: 3rem;
+}
+
+#small-profile {
+    text-align: center;
+}
+
+#small-profile .img-profile {
+    margin-bottom: 2rem;
 }
 
 #menu-left {
@@ -236,16 +244,21 @@ hr {
     .card-wrap {
         width: 600px;
     }
+
+    #small-profile {
+        display: none;
+    }
 }
 
 /* 작을 때 */
 @media (max-width: 1024px) {
     #menu-left {
-        position: absolute;
+        /* position: absolute;
         height: 100%;
         left: -300px;
         top: 0px;
-        z-index: 10;
+        z-index: 10; */
+        display: none;
     }
 
     #menuBtn {
@@ -254,5 +267,9 @@ hr {
 
     .card-wrap {
         width: 100%;
+    }
+
+    #small-profile {
+        display: block;
     }
 }

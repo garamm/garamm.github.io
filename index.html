@@ -17,14 +17,14 @@
     <div id="container">
         <nav id="menu-left">
             <div>
-                <button id="closeBtn"><i class="fa-regular fa-x"></i></button>
-                <img id="img-profile" src="imgs/profile.jpg">
+                <!-- <button id="closeBtn"><i class="fa-regular fa-x"></i></button> -->
+                <img class="img-profile" src="imgs/profile.jpg">
                 <p id="nav-icons">
                     <a href="https://github.com/garamm" target="_blank"><i class="fa-brands fa-github"></i></a>
                     <a href="https://garamm.tistory.com" target="_blank"><i class="fa-solid fa-blog"></i></a>
-                    <a href="mailto:garam1201@gmail.com" target="_blank"><i class="fa-regular fa-envelope"></i></a>
+                    <a href="mailto:imgaramm@naver.com" target="_blank"><i class="fa-regular fa-envelope"></i></a>
                 </p>
-                <ul>
+                <!-- <ul>
                     <a href="#about">
                         <li>About</li>
                     </a>
@@ -37,16 +37,19 @@
                     <a href="#contact">
                         <li>Contact</li>
                     </a>
-                </ul>
+                </ul> -->
             </div>
         </nav>
 
         <div class="content-wrapper">
             <nav id="menu-top">
-                <button id="menuBtn"><i class="fa-solid fa-bars"></i></button>
+                <!-- <button id="menuBtn"><i class="fa-solid fa-bars"></i></button> -->
                 안녕하세요, 개발자 임가람 입니다.
             </nav>
 
+            <div id="small-profile">
+                <img class="img-profile" src="imgs/profile.jpg">
+            </div>
 
             <div id="content">
                 <!-- About -->
@@ -235,27 +238,27 @@
 
 
 <script>
-    $(document).ready(function () {
-        $("#menuBtn").on("click", function (event) {
-            openMenu();
-        });
+    // $(document).ready(function () {
+    //     $("#menuBtn").on("click", function (event) {
+    //         openMenu();
+    //     });
 
-        $("#closeBtn").on("click", function (event) {
-            closeMenu();
-        });
+    //     $("#closeBtn").on("click", function (event) {
+    //         closeMenu();
+    //     });
 
-        $("#content").on("click", function (event) {
-            closeMenu();
-        });
-    });
+    //     $("#content").on("click", function (event) {
+    //         closeMenu();
+    //     });
+    // });
 
-    function openMenu() {
-        $("#menu-left").animate({ 'left': "0px" }, 300);
-        $('#closeBtn').css('display', 'block');
-    }
+    // function openMenu() {
+    //     $("#menu-left").animate({ 'left': "0px" }, 300);
+    //     $('#closeBtn').css('display', 'block');
+    // }
 
-    function closeMenu() {
-        $("#menu-left").animate({ 'left': "-300px" }, 300);
-        $('#closeBtn').css('display', 'none');
-    }
+    // function closeMenu() {
+    //     $("#menu-left").animate({ 'left': "-300px" }, 300);
+    //     $('#closeBtn').css('display', 'none');
+    // }
 </script>
